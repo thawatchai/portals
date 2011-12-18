@@ -1,0 +1,355 @@
+{% load i18n %}
+{% load backend_extras %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8" />
+		<title>
+			{% if portal %}
+				{{ portal.title }} | 
+			{% endif %}	
+			{% if sys_info %}
+				{{ sys_info.site_title }}
+			{% else %}	
+				UsablePortal
+			{% endif %}	
+		</title>
+
+		<!-- Begin YUI -->
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="/yui/build/reset-fonts-grids/reset-fonts-grids.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/fonts/fonts-min.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/assets/skins/sam/skin.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/button/assets/skins/sam/button.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/menu/assets/skins/sam/menu.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/datatable/assets/skins/sam/datatable.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/paginator/assets/skins/sam/paginator.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/treeview/assets/skins/sam/treeview.css" />
+		<link rel="shortcut icon" href="/images/portal-icon.ico" />
+
+		<!-- JavaScript -->
+		<script type="text/javascript" src="/yui/build/yahoo/yahoo-min.js"></script>
+		<script type="text/javascript" src="/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+		<script type="text/javascript" src="/yui/build/element/element-beta-min.js"></script>
+		<script type="text/javascript" src="/yui/build/container/container_core-min.js"></script>
+		<script type="text/javascript" src="/yui/build/get/get-min.js"></script>
+		<script type="text/javascript" src="/yui/build/menu/menu-min.js"></script>
+		<script type="text/javascript" src="/yui/build/button/button-min.js"></script>
+		<script type="text/javascript" src="/yui/build/datasource/datasource-min.js"></script>
+		<script type="text/javascript" src="/yui/build/datatable/datatable-min.js"></script>
+		<script type="text/javascript" src="/yui/build/connection/connection-min.js"></script>
+		<script type="text/javascript" src="/yui/build/paginator/paginator-min.js"></script>
+		<script type="text/javascript" src="/yui/build/animation/animation-min.js"></script>
+		<script type="text/javascript" src="/yui/build/treeview/treeview-min.js" ></script>
+		<script type="text/javascript" src="/yui/build/json/json-min.js"></script>
+
+		<!-- End YUI -->
+
+		<link rel="stylesheet" type="text/css" href="/stylesheets/960/960.css" />
+
+		<link rel="stylesheet" type="text/css" href="/stylesheets/backend.css" />
+		<script type="text/javascript" src="/javascripts/jquery-1.2.6.min.js"></script>
+		<script type="text/javascript" src="/javascripts/portal.js" ></script>
+
+		<script type="text/javascript">
+			<!--
+			Portal.connectionFailure = '{% trans "Cannot connect to the server. Please click Refresh and try again." %}';
+			Portal.responseError = '{% trans "The server did not return data. You might have logged out from the system. Please login again." %}';
+			//-->
+		</script>
+
+		<!-- <script type='text/javascript' src='http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js'></script> -->
+
+	</head>
+	<body class="yui-skin-sam">
+		<div id="cover-frame">
+			<div class="container_12" id="main-frame">
+
+				<div class="grid_12 alpha omega" id="head-frame">
+					<div class="grid_8 alpha title">
+						{% if portal %}
+						<a target="_blank" href="{% view_url portal %}">{{ portal.title }}</a>
+						{% else %}
+						{% if sys_info %}
+						{{ sys_info.site_title }}
+						{% else %}
+						UsablePortal
+						{% endif %}
+						{% endif %}
+					</div>
+					<div class="grid_4 omega user-info">
+						{% if user.is_authenticated %}
+						{{ user|user_display_name }}
+						&nbsp;|&nbsp;
+						<a href="/portals/logout">{% trans "Logout" %}</a>
+						{% else %}
+						<a href="/portals/login">{% trans "Login" %}</a>
+						{% endif %}
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+
+				{% if user.is_authenticated %}
+				<div id="menubar" class="grid_12 alpha omega yuimenubar yuimenubarnav">
+					<div class="bd">
+						<ul class="first-of-type">
+							<li class="yuimenubaritem first-of-type">
+								<a class="yuimenubaritemlabel" href="#portal-menu">{% trans "Portal" %}</a>
+								<div id="portal-menu" class="yuimenu">
+									<div class="bd">
+										{% if portal %}
+										<ul class="first-of-type">
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.portal_main portal.address %}" class="yuimenuitemlabel">{% trans "Portal Dashboard" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url frontend.views.portal_home portal.address %}" class="yuimenuitemlabel" target="_blank">{% trans "View Portal" %}</a>
+											</li>
+										</ul>
+										<ul>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.portal_edit portal.address %}" class="yuimenuitemlabel">{% trans "Edit Portal Information" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="#set-home-page" class="yuimenuitemlabel">{% trans "Set Home Page" %}</a>
+												<div id="set-home-page" class="yuimenu">
+													<div class="bd">
+														<ul>
+															<li class="yuimenuitem">
+																<a href="{% url backend.views.portal_homepage_page portal.address %}" class="yuimenuitemlabel">{% trans "Book Page" %}</a>
+															</li>
+															<li class="yuimenuitem">
+																<a href="{% url backend.views.portal_homepage_news portal.address %}" class="yuimenuitemlabel">{% trans "News" %}</a>
+															</li>
+															<li class="yuimenuitem">
+																<a href="{% url backend.views.portal_homepage_event portal.address %}" class="yuimenuitemlabel">{% trans "Event" %}</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.portal_theme portal.address %}" class="yuimenuitemlabel">{% trans "Set Theme" %}</a>
+											</li>
+										</ul>
+										{% ifequal portal.owner request.user %}
+										<ul>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.contributor_create portal.address %}" class="yuimenuitemlabel">{% trans "Add Contributor" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.contributor_list portal.address %}" class="yuimenuitemlabel">{% trans "Manage Contributors" %}</a>
+											</li>
+										</ul>
+										{% else %}
+										<ul>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.contributor_list portal.address %}" class="yuimenuitemlabel">{% trans "Contributors" %}</a>
+											</li>
+										</ul>
+										{% endifequal %}
+										{% endif %}
+										{% if portal %}<ul>{% else %}<ul class="first-of-type">{% endif %}
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.portal_list %}" class="yuimenuitemlabel">{% trans "List All Portals" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.portal_create %}" class="yuimenuitemlabel">{% trans "Create New Portal" %}</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							{% if portal %}
+							<li class="yuimenubaritem first-of-type">
+								<a class="yuimenubaritemlabel" href="#categories-menu">{% trans "Keywords" %}</a>
+								<div id="categories-menu" class="yuimenu">
+									<div class="bd">
+										<ul class="first-of-type">
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.keyword_create portal.address %}" class="yuimenuitemlabel">{% trans "Create Keyword" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.keyword_list portal.address %}" class="yuimenuitemlabel">{% trans "Manage Keywords" %}</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li class="yuimenubaritem first-of-type">
+								<a class="yuimenubaritemlabel" href="#pages-menu">{% trans "Book Pages" %}</a>
+								<div id="pages-menu" class="yuimenu">
+									<div class="bd">
+										<ul class="first-of-type">
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.page_create portal.address %}" class="yuimenuitemlabel">{% trans "Create Page" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.page_list portal.address %}" class="yuimenuitemlabel">{% trans "Manage Book Pages" %}</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li class="yuimenubaritem first-of-type">
+								<a class="yuimenubaritemlabel" href="#news-menu">{% trans "News" %}</a>
+								<div id="news-menu" class="yuimenu">
+									<div class="bd">
+										<ul class="first-of-type">
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.news_create portal.address %}" class="yuimenuitemlabel">{% trans "Create News" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.news_list portal.address %}" class="yuimenuitemlabel">{% trans "Manage News" %}</a>
+											</li>
+										</ul>
+										<ul>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.newscategory_create portal.address %}" class="yuimenuitemlabel">{% trans "Create News Category" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.newscategory_list portal.address %}" class="yuimenuitemlabel">{% trans "Manage News Categories" %}</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li class="yuimenubaritem first-of-type">
+								<a class="yuimenubaritemlabel" href="#events-menu">{% trans "Events" %}</a>
+								<div id="events-menu" class="yuimenu">
+									<div class="bd">
+										<ul class="first-of-type">
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.event_create portal.address %}" class="yuimenuitemlabel">{% trans "Create Event" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.event_list portal.address %}" class="yuimenuitemlabel">{% trans "Manage Events" %}</a>
+											</li>
+										</ul>
+										<ul>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.eventcategory_create portal.address %}" class="yuimenuitemlabel">{% trans "Create Event Category" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.eventcategory_list portal.address %}" class="yuimenuitemlabel">{% trans "Manage Event Categories" %}</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							<li class="yuimenubaritem first-of-type">
+								<a class="yuimenubaritemlabel" href="#files-menu">{% trans "Files" %}</a>
+								<div id="files-menu" class="yuimenu">
+									<div class="bd">
+										<ul class="first-of-type">
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.ftp_access portal.address %}" class="yuimenuitemlabel">{% trans "FTP Access" %}</a>
+											</li>
+										</ul>
+										{% if allow_upload %}
+										<ul>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.file_create portal.address %}" class="yuimenuitemlabel">{% trans "Upload File" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.file_list portal.address %}" class="yuimenuitemlabel">{% trans "Manage Files" %}</a>
+											</li>
+										</ul>
+										{% endif %}
+									</div>
+								</div>
+							</li>
+							<li class="yuimenubaritem first-of-type">
+								<a class="yuimenubaritemlabel" href="#podcasts-menu">{% trans "Podcasts" %}</a>
+								<div id="podcasts-menu" class="yuimenu">
+									<div class="bd">
+										<ul class="first-of-type">
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.podcast_create portal.address %}" class="yuimenuitemlabel">{% trans "Create Podcast" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.podcast_list portal.address %}" class="yuimenuitemlabel">{% trans "Manage Podcasts" %}</a>
+											</li>
+										</ul>
+										<ul>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.podcastcategory_create portal.address %}" class="yuimenuitemlabel">{% trans "Create Podcast Category" %}</a>
+											</li>
+											<li class="yuimenuitem">
+												<a href="{% url backend.views.podcastcategory_list portal.address %}" class="yuimenuitemlabel">{% trans "Manage Podcast Categories" %}</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							{% endif %}
+						</ul>
+					</div>
+				</div>
+				<div class="clear"></div>
+				{% endif %}
+
+				<div class="grid_12 alpha omega" id="message-holder">
+					{% if messages %}
+					<div id="messages" style="display: none;">
+						{% for message in messages %}
+						{{ message }}
+						{% endfor %}
+					</div>
+					{% endif %}
+				</div>
+				<div class="clear"></div>
+
+				<div class="grid_12 alpha omega" id="body-frame">
+					{% if user.is_authenticated %}
+					<div class="grid_12 alpha omega breadcrumbs">
+						<div id="breadcrumbs-top">{{ request.path|breadcrumbs }}</div>
+					</div>
+					<div class="clear"></div>
+					{% endif %}
+					{% block body %}{% endblock %}
+					{% if user.is_authenticated %}
+					<div class="grid_12 alpha omega breadcrumbs">
+						<div id="breadcrumbs-bottom">{{ request.path|breadcrumbs }}</div>
+					</div>
+					<div class="clear"></div>
+					{% endif %}
+				</div>
+				<div class="clear"></div>
+
+				<div class="grid_12 alpha omega" id="footer-frame">
+					{% if sys_info.footer %}
+					<div id="sys_ft">{{ sys_info.footer }}</div>
+					{% endif %}
+					{% if user.is_authenticated %}
+					{% trans "Need Help?" %} <a href="{% url backend.views.contact_support %}">{% trans "Contact Support Team" %}</a><br />
+					{% endif %}
+					{% include "b/setlang.html" %}
+					{% if sys_info.backend_footer %}
+					<div id="sys_backend_ft">{{ sys_info.backend_footer|safe }}</div>
+					{% endif %}
+					<div id="sponsor-credit">
+						{% if sys_info.site_address %}
+						<a href="http://{{ sys_info.site_address }}">{{ sys_info.site_title }}</a>
+						{% endif %}
+						{% trans "powered by" %} <a href="http://portal.in.th/usableportal">UsablePortal</a> <sup>Beta</sup> {% trans "from" %} <a href="http://usablelabs.org/">UsableLabs</a>, <a href="http://www.psu.ac.th/">{% trans "Prince of Songkla University" %}</a>
+						{% trans "by courtesy of" %} <a href="http://www.thaihealth.or.th/">{% trans "ThaiHealth" %}</a>, <a href="http://www.trf.or.th/">{% trans "TRF" %}</a>, <a href="http://www.kmi.or.th/">{% trans "KMI" %}</a>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			YAHOO.util.Event.onDOMReady(function() {
+					var portalMenuBar = new YAHOO.widget.MenuBar("menubar", {autosubmenudisplay: true});
+					portalMenuBar.render();
+
+					var msg = $('#messages');
+					if (msg) msg.show('slow');
+					});
+		</script>
+	</body>
+</html>

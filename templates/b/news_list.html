@@ -1,0 +1,58 @@
+{% extends "b/base.html" %}
+{% load i18n %}
+{% load backend_extras %}
+
+{% block body %}
+
+<div class="controller">
+	<a href="{% url portals.backend.views.news_create portal.address %}" id="create-object-button">{% trans "Create News" %}</a>
+</div>
+
+<div class="title">{% trans "News" %}</div>
+
+{% ifnotequal total 0 %}
+<div id="object-table"></div>
+{% else %}
+<p>{% trans "This portal does not have a news item. Click 'Create News' to write one." %}</p>
+{% endifnotequal %}
+
+<script type="text/javascript">
+        new YAHOO.widget.Button('create-object-button');
+	YAHOO.util.Event.addListener(window, "load", function() {
+
+		{% ifnotequal total 0 %}
+		var oColumnDefs = [
+			{
+				key:"title",
+				label:"{% trans "Title" %}",
+				formatter: function(elCell, oRecord, oColumn, sData) {
+					elCell.innerHTML = '<a href="' + oRecord.getData('edit_url') + '">' + sData + '</a>';
+				}
+			},
+			{key:"category", label:"{% trans "Category" %}"},
+			{key:"created", label:"{% trans "Created" %}"},
+			{key:"hidden", label:"{% trans "Hidden" %}"},
+			{key:"sticky", label:"{% trans "Sticky" %}"},
+			{
+				key:"view", 
+				label:"{% trans "View" %}", 
+				formatter: function(elCell, oRecord, oColumn, sData) {
+					elCell.innerHTML = '<a href="' + oRecord.getData('view_url') + '" target="_blank"> {% trans "View" %} </a>';
+				}
+			} 
+		];
+
+		var oDataSource = new YAHOO.util.DataSource("/portals/{{ portal.address }}/news/data/?");
+		oDataSource.responseType = YAHOO.util.DataSource.TYPE_JSON;
+		oDataSource.responseSchema = {
+			resultsList: "results",
+			fields: ["title","category", "created", "hidden", "sticky", "edit_url", "view_url"]
+		};
+
+		{% include "b/pagination.js" %}
+
+		{% endifnotequal %}
+	}); 
+</script>
+
+{% endblock %}

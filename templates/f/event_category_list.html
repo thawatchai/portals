@@ -1,0 +1,34 @@
+{% extends "f/base2.html" %}
+{% load i18n %}
+{% load frontend_extras %}
+
+{% block content %}
+
+<div class="title">{% trans "Events" %}</div>
+
+{% for obj in sticky_event_list %}
+<div class="sticky">
+	{% include "f/event_list_item.html" %}
+</div>
+{% endfor %}
+
+{% ifequal total 0 %}
+<p>{% trans "This portal does not have any events, or all events are marked sticky." %}</p>
+{% else %}
+
+<div class="list-item">
+	<div class="pagination"><div id="paginator-top"></div></div>
+	<ul>
+		{% for obj in page.object_list %}
+			{% include "f/event_list_item.html" %}
+		{% endfor %} 
+	</ul>
+	<div class="pagination"><div id="paginator-bottom"></div></div>
+</div>
+
+{% include "f/pagination.html" %}
+
+{% endifequal %}
+
+{% endblock %}
+

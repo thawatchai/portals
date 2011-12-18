@@ -1,0 +1,35 @@
+{% extends "f/base2.html" %}
+{% load i18n %}
+{% load frontend_extras %}
+
+{% block content %}
+
+<div class="title">{{ title }}</div>
+
+{% ifequal total 0 %}
+<p>{% trans "This portal does not have any pages." %}</p>
+{% else %}
+
+<div class="pagination"><div id="paginator-top"></div></div>
+
+{% for obj in page.object_list %}
+	<div class="list-item">
+		<div class="item-title"><a href="{% domain_url portal frontend.views.page_item portal.address obj.id %}">{{ obj.title }}</a></div>
+		{{ obj.content|striptags|truncatechars:350 }}
+		<div class="item-info">
+			<strong>{% trans "Keywords" %}:</strong> {% keyword_list obj.keywords portal "page" %} 
+			<br />
+			<strong>{% trans "Created" %}:</strong> {{ obj.created_at }} 
+			&nbsp;
+			<strong>{% trans "Modified" %}:</strong> {{ obj.modified_at }} 
+		</div>
+	</div>
+{% endfor %}
+
+<div class="pagination"><div id="paginator-bottom"></div></div>
+
+{% include "f/pagination.html" %}
+
+{% endifequal %}
+
+{% endblock %}

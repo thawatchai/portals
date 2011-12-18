@@ -1,0 +1,13 @@
+Required
+========
+python 2.5.x or above
+python-setuptools
+python-mysqldb
+python-imaging
+python-flup
+python-django
+
+Optional
+========
+yolk
+ipython

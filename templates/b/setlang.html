@@ -1,0 +1,10 @@
+{% load i18n %}
+<form action="/portals/i18n/setlang/" method="POST" name="setlang">
+	<select name="language" onChange="document.setlang.submit();">
+		<!-- <select name="language"> -->
+		{% for lang in LANGUAGES %}
+		<option value="{{ lang.0 }}" {% ifequal lang.0 LANGUAGE_CODE %}selected="selected"{% endifequal %}>{{ lang.1 }}</option>
+		{% endfor %}
+		<!-- <input type="submit" value="{% trans "Set" %}" style="width: 50px;" /> -->
+	</select>
+</form>

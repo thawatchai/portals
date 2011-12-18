@@ -1,0 +1,65 @@
+digraph Theme {
+	rankdir = TB;
+	node [shape=box, fontname="Courier New"];
+	edge [arrowhead=empty];
+
+	{
+		node [shape=doublecircle];
+		BODY;
+		H1;
+		H2;
+	}
+
+	{
+		node [shape=oval];
+		breadcrumbs;
+		breadcrumb;
+		yui_b [label="yui-b"];
+		yui_gd [label="yui-gd"];
+		yui_u_first [label="yui-u"];
+		yui_u [label="yui-u"];
+		first;
+	}
+
+	{
+		doc2_outer [label="doc2-outer"];
+		hd_outer [label="hd-outer"];
+		bd_outer [label="bd-outer"];
+		ft_outer [label="ft-outer"];
+
+		breadcrumbs_top [label="breadcrumbs-top"];
+		breadcrumbs_bottom [label="breadcrumbs-bottom"];
+
+		yui_main [label="yui-main"];
+		sidebar_outer [label="sidebar-outer"];
+
+		content_outer [label="content-outer"];
+	}
+
+	BODY -> doc2_outer;
+	BODY -> credit;
+
+	doc2_outer -> doc2;
+
+	doc2 -> hd_outer -> hd;
+	doc2 -> bd_outer -> bd;
+	doc2 -> ft_outer -> ft;
+
+	hd -> H1;
+	hd -> H2;
+
+	bd -> breadcrumbs;
+	breadcrumbs -> breadcrumbs_top -> breadcrumb;
+	breadcrumbs -> breadcrumbs_bottom -> breadcrumb;
+
+	bd -> yui_main -> yui_b -> yui_gd;
+	yui_gd -> yui_u_first;
+	first -> yui_u_first;
+	yui_gd -> yui_u;
+
+	yui_u_first -> sidebar_outer;
+	sidebar_outer -> sidebar;
+
+	yui_u -> content_outer;
+	content_outer -> content;
+}

@@ -1,0 +1,181 @@
+{% load i18n %}
+{% load backend_extras %}
+{% load frontend_extras %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8" />
+		<title>
+			{% block title %}
+			{% if portal %}
+				{{ portal.title }}
+			{% endif %}	
+			{% endblock %}
+		</title>
+
+		{% if portal %}
+		<link rel="alternate" type="application/rss+xml" title="{{ portal.title }}" href="{{ portal_feed_uri }}" />
+		<link rel="alternate" type="application/rss+xml" title="{{ portal.title }}" href="{{ portal_podcast_feed_uri }}" />
+		{% endif %}
+
+		<!-- Begin YUI -->
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="/yui/build/reset-fonts-grids/reset-fonts-grids.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/fonts/fonts-min.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/assets/skins/sam/skin.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/button/assets/skins/sam/button.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/menu/assets/skins/sam/menu.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/datatable/assets/skins/sam/datatable.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/paginator/assets/skins/sam/paginator.css" />
+		<link rel="stylesheet" type="text/css" href="/yui/build/treeview/assets/skins/sam/treeview.css" />
+
+		<link rel="stylesheet" type="text/css" href="/yui/examples/treeview/assets/css/local/tree.css" />
+
+		<!-- JavaScript -->
+		<script type="text/javascript" src="/yui/build/yahoo/yahoo-min.js"></script>
+		<script type="text/javascript" src="/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+		<script type="text/javascript" src="/yui/build/element/element-beta-min.js"></script>
+		<script type="text/javascript" src="/yui/build/container/container_core-min.js"></script>
+		<script type="text/javascript" src="/yui/build/get/get-min.js"></script>
+		<script type="text/javascript" src="/yui/build/menu/menu-min.js"></script>
+		<script type="text/javascript" src="/yui/build/button/button-min.js"></script>
+		<script type="text/javascript" src="/yui/build/datasource/datasource-min.js"></script>
+		<script type="text/javascript" src="/yui/build/datatable/datatable-min.js"></script>
+		<script type="text/javascript" src="/yui/build/connection/connection-min.js"></script>
+		<script type="text/javascript" src="/yui/build/paginator/paginator-min.js"></script>
+		<script type="text/javascript" src="/yui/build/animation/animation-min.js"></script>
+		<script type="text/javascript" src="/yui/build/treeview/treeview-min.js" ></script>
+		<script type="text/javascript" src="/yui/build/json/json-min.js"></script>
+
+		<!-- End YUI -->
+		<link rel="stylesheet" type="text/css" href="/stylesheets/960/960.css" />
+
+		<script type="text/javascript" src="/javascripts/jquery-1.2.6.min.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="/javascripts/lightbox/lightbox.css" media="screen" />
+		<script type="text/javascript" src="/javascripts/lightbox/prototype.js" ></script>
+		<script type="text/javascript" src="/javascripts/lightbox/scriptaculous.js?load=effects,builder" ></script>
+		<script type="text/javascript" src="/javascripts/lightbox/lightbox.js" ></script>
+
+		<script type="text/javascript" src="/javascripts/portal.js" ></script>
+
+		{% if enable_flowplayer %}
+		<script type="text/javascript" src="/flowplayer/example/flowplayer-3.0.6.min.js" ></script>
+		{% endif %}
+
+		<link rel="stylesheet" type="text/css" href="/stylesheets/general.css" />
+		<link rel="stylesheet" type="text/css" href="/themes/{% default_theme %}/style.css" />
+
+		{% if portal %}
+		<style type="text/css">
+			{{ portal.custom_css }}
+		</style>
+		{% endif %}	
+
+		<link rel="stylesheet" type="text/css" href="/stylesheets/headbar.css" />
+		<link rel="shortcut icon" href="/images/portal-icon.ico" />
+	</head>
+
+	<body class="yui-skin-sam">
+		<div id="headbar">
+			<span id="logo">
+				{% if sys_info.site_img_url %}
+				<a href="http://{{ sys_info.site_address }}/">{{ sys_info.site_img_url }}</a>
+				{% else %}
+				<a href="http://{{ sys_info.site_address }}/"><b>{{ sys_info.site_title }}</b></a>
+				{% endif %}
+			</span>
+
+			<span id="links">
+				<a href="{% if sys_info.site_address %}http://{{ sys_info.site_address }}{% endif %}/portals/login">{% trans "Login" %} &raquo;</a>
+				<span class="partition">&nbsp;|&nbsp;</span>
+				<a href="http://{{ sys_info.site_address }}/{{ sys_info.main_portal_address }}/system/portals">{% trans "Portal List" %} &raquo;</a>
+				<span class="partition">&nbsp;|&nbsp;</span>
+				<a href="http://{{ sys_info.site_address }}/{{ sys_info.main_portal_address }}/next-portal">{% trans "Random Portal" %} &raquo;</a>
+			</span>
+		</div>
+
+		{% if sys_info.announcement %}
+		<div id="system-announcement">{{ sys_info.announcement }}</div>
+		{% endif %}
+		{% if portal.announcement %}
+		<div id="portal-announcement">{{ portal.announcement }}</div>
+		{% endif %}
+
+		<div class="container_12">
+			<div class="grid_12 alpha omega" id="main-block-outer">
+				<div id="main-block">
+
+					<div class="grid_12 alpha omega" id="head-block-outer">
+						<div id="head-block">
+							<div id="head-block-inner">
+								{% block hd_title %}
+								{% if not portal.hide_header_title %}
+								<h1>{{ portal.title }}</h1>
+								<h2>
+									{% if portal.subtitle %}
+									{{ portal.subtitle }}
+									{% endif %}
+								</h2>
+								{% endif %}
+								{% endblock %}
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+
+					<div class="grid_12 alpha omega" id="body-block-outer">
+						<div id="body-block">
+							<div id="body-block-inner">
+								{% if portal %}
+								<div class="breadcrumbs">
+									<div id="breadcrumbs-top">{% breadcrumbs_tag request.path portal obj %}</div>
+								</div>
+								{% endif %}
+
+								{% block body %}{% endblock %}
+
+								{% if portal %}
+								<div class="breadcrumbs">
+									<div id="breadcrumbs-bottom">{% breadcrumbs_tag request.path portal obj %}</div>
+								</div>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+
+					<div class="grid_12 alpha omega" id="foot-block-outer">
+						<div id="foot-block">
+							<div id="foot-block-inner">
+								{% if portal.footer %}
+								<div id="portal_ft">{{ portal.footer }}</div>
+								{% endif %}
+
+								{% if portal %}
+								{% ifnotequal portal.license "PD" %}
+								{% trans "Copyright" %} &copy; {{ portal.copyright_holder }}<br />
+								{% endifnotequal %}
+								{% trans "Contents licensed under" %}
+								{{ portal.license|license_statement }}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		{% if sys_info.footer %}
+		<div id="sys_ft">{{ sys_info.footer }}</div>
+		{% endif %}
+	</body>
+
+	<script type="text/javascript">
+		$($('#headbar').css('display', 'block'));
+	</script>
+</html>

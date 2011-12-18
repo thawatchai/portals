@@ -1,0 +1,83 @@
+{% extends "b/base2r.html" %}
+{% load i18n %}
+{% load backend_extras %}
+
+{% block content %}
+
+<div class="controller">
+	<a href="{% url backend.views.portal_create %}" id="create-portal-button">{% trans "Create Portal" %}</a>
+</div>
+
+<div class="title">{% trans "My Portals" %} {{ portal_user|user_display_name }}</div>
+{% if my_portals %}
+<div id="my-portals">
+	<table id="my-portals-table">
+		{% for portal in my_portals %}
+		<tr>
+			<td><a href="{% url backend.views.portal_main portal.address %}">{{ portal.address }}</a></td>
+			<td>{{ portal.title }}</td>
+			<td>
+				<a href="{% view_url portal %}" target="_blank">{% trans "View" %}</a>
+				/
+				<a href="{% url backend.views.portal_main portal.address %}">{% trans "Manage" %}</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% else %}
+<p>{% trans "This user does not have a portal." %}</p>
+{% endif %}
+
+<div class="title">{% trans "Contributed Portals" %}</div>
+{% if contributed_portals %}
+<div id="c-portals">
+	<table id="c-portals-table">
+		{% for portal in contributed_portals %}
+		<tr>
+			<td><a href="{% url backend.views.portal_main portal.address %}">{{ portal.address }}</a></td>
+			<td>{{ portal.title }}</td>
+			<td>
+				<a href="{% url frontend.views.portal_home portal.address %}" target="_blank">{% trans "View" %}</a>
+				/
+				<a href="{% url backend.views.portal_main portal.address %}">{% trans "Manage" %}</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% else %}
+<p>{% trans "This user does not have a portal that he/she collaborates as a contributor." %}</p>
+{% endif %}
+
+<script type="text/javascript">
+	new YAHOO.widget.Button('create-portal-button');
+
+	PortalsResponseSchema = {
+		fields: [
+					{key:"{% trans "Address" %}"},
+					{key:"{% trans "Title" %}"},
+					{key:"{% trans "Actions" %}"}
+				]
+	};
+	var PortalsColumnDefs = [
+		{key:"{% trans "Address" %}"},
+		{key:"{% trans "Title" %}"},
+		{key:"{% trans "Actions" %}"}
+	];
+
+	var myPortalsSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("my-portals-table"));
+	myPortalsSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+	myPortalsSource.responseSchema = PortalsResponseSchema;
+
+	var myPortalsTable = new YAHOO.widget.DataTable("my-portals", PortalsColumnDefs, myPortalsSource);
+
+	var cPortalsSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("c-portals-table"));
+	cPortalsSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+	cPortalsSource.responseSchema = PortalsResponseSchema;
+
+	var cPortalsTable = new YAHOO.widget.DataTable("c-portals", PortalsColumnDefs, cPortalsSource);
+</script>
+
+{% endblock %}
+

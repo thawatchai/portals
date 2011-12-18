@@ -1,0 +1,99 @@
+{% extends form_base %}
+
+{% load i18n %}
+{% load backend_extras %}
+
+{% block content %}
+
+<div class="controller">
+
+{% if view_url %}
+	<a href="{{ view_url }}" id="view-button" target="_blank">{% trans "View" %}</a>
+	<script type="text/javascript">
+		new YAHOO.widget.Button('view-button');
+	</script>
+{% endif %}
+
+{% if delete_url %}
+	<a href="{{ delete_url }}" id="delete-button">{% trans "Delete" %}</a>
+	<script type="text/javascript">
+		new YAHOO.widget.Button('delete-button');
+	</script>
+{% endif %}
+
+</div>
+
+{% if not disable_tiny_mce %}
+<script type="text/javascript" src="/javascripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+	Portal.tinyMCEinit();
+</script>
+{% else %}
+<style type="text/css">
+	textarea {
+		width: 400px;
+		height: 200px;
+	}
+</style>
+{% endif %}
+
+<div class="title">{{ title }}</div>
+
+<div id="common-form">
+{% if form.is_multipart %}
+<form method="POST" enctype="multipart/form-data" action="{{ action }}">
+{% else %}
+<form method="POST" action="{{ action }}">
+{% endif %}
+	<table>
+		{{ form.as_table }}
+		{% if message %}
+		<tr>
+			<td>&nbsp;</td>
+			<td>{{ message }}</td>
+		</tr>
+		{% endif %}
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<input type="submit" id="save-button" name="save" value="{{ button_label|print_button_label }}" />
+				{% ifequal button_label None %}
+				<input type="submit" id="save-continue-button" name="save-continue" value="{% trans "Save &amp; Continue Editing" %}" />
+				{% endifequal %}
+			</td>
+			<script type="text/javascript">
+				new YAHOO.widget.Button("save-button");
+				{% ifequal button_label None %}
+				new YAHOO.widget.Button("save-continue-button");
+				new YAHOO.widget.Button("cancel-button");
+				{% endifequal %}
+			</script>
+		</tr>
+	</table>
+</form>
+</div>
+
+{% if enable_code_mirror %}
+<script type="text/javascript" src="/javascripts/CodeMirror/js/codemirror.js"></script>
+<script type="text/javascript">
+	var editor = CodeMirror.fromTextArea('form-content', {
+				height: '400px',
+				width: '520px',
+				parserfile: 'parsecss.js',
+				stylesheet: '/javascripts/CodeMirror/css/csscolors.css',
+				path: '/javascripts/CodeMirror/js/'
+			});
+	$('iframe').css('border', '1px solid #333');
+</script>
+{% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+
+{% if help_text %}
+<div class="title">{% trans "Help" %}</div>
+{{ help_text|linebreaks }}
+{% endif %}
+
+{% endblock %}

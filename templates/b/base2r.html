@@ -1,0 +1,13 @@
+{% extends "b/base.html" %}
+
+{% block body %}
+
+<div class="grid_8 alpha" id="content">
+	{% block content %}{% endblock %}
+</div>
+<div class="grid_4 omega" id="sidebar">
+	{% block sidebar %}{% endblock %}
+</div>
+<div class="clear"></div>
+
+{% endblock %}

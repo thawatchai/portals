@@ -1,0 +1,16 @@
+{% extends "b/base2r.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="title">{{ title }}</div>
+
+<p>{{ message|safe|linebreaks }}</p>
+
+<p><a href="{% if return_url %}{{ return_url }}{% else %}{% url backend.views.portal_main portal.address %}{% endif %}" id="ok-button">{% trans "OK" %}</a></p>
+
+<script type="text/javascript">
+	new YAHOO.widget.Button("ok-button");
+</script>
+
+{% endblock %}

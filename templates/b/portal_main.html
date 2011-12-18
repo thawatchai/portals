@@ -1,0 +1,287 @@
+{% extends "b/base2r.html" %}
+{% load i18n %}
+{% load backend_extras %}
+
+{% block content %}
+
+<div class="grid_4 alpha">
+
+<div class="title">{% trans "Recently Modified Book Pages" %}</div>
+{% if recently_modified_pages %}
+<div id="recently-modified-pages">
+	<table id="recently-modified-pages-table">
+		{% for page in recently_modified_pages %}
+		<tr>
+			<td><a href="{% url backend.views.page_list portal.address %}?p={{ page.id }}">{{ page.title }}</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% else %}
+<p>{% trans "This portal does not have a book page. Click 'Create Page' to write one." %}</p>
+{% endif %}
+
+<div class="bottom-controller">
+	<a href="{% url backend.views.page_create portal.address %}" id="create-page-button">{% trans "Create" %}</a>
+	<a href="{% url backend.views.page_list portal.address %}" id="manage-page-button">{% trans "Manage" %}</a>
+</div>
+
+</div>
+
+<div class="grid_4 omega">
+
+<div class="title">{% trans "Recent News" %}</div>
+{% if recent_news %}
+<div id="recent-news">
+	<table id="recent-news-table">
+		{% for news in recent_news %}
+		<tr>
+			<td><a href="{% url backend.views.news_edit portal.address news.id %}">{{ news.title }}</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% else %}
+<p>{% trans "This portal does not have a news item. Click 'Create News' to write one." %}</p>
+{% endif %}
+
+<div class="bottom-controller">
+	<a href="{% url backend.views.news_create portal.address %}" id="create-news-button">{% trans "Create" %}</a>
+	<a href="{% url backend.views.news_list portal.address %}" id="manage-news-button">{% trans "Manage" %}</a>
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+<div class="grid_4 alpha">
+
+<div class="title">{% trans "Recent Events" %}</div>
+{% if recent_events %}
+<div id="recent-events">
+	<table id="recent-events-table">
+		{% for event in recent_events %}
+		<tr>
+			<td><a href="{% url backend.views.event_edit portal.address event.id %}">{{ event.title }}</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% else %}
+<p>{% trans "This portal does not have an event. Click 'Create Event' to write one." %}</p>
+{% endif %}
+
+<div class="bottom-controller">
+	<a href="{% url backend.views.event_create portal.address %}" id="create-event-button">{% trans "Create" %}</a>
+	<a href="{% url backend.views.event_list portal.address %}" id="manage-event-button">{% trans "Manage" %}</a>
+</div>
+
+</div>
+
+<div class="grid_4 omega">
+
+<div class="title">{% trans "Recent Podcasts" %}</div>
+{% if recent_podcasts %}
+<div id="recent-podcasts">
+	<table id="recent-podcasts-table">
+		{% for podcast in recent_podcasts %}
+		<tr>
+			<td><a href="{% url backend.views.podcast_edit portal.address podcast.id %}">{{ podcast.title }}</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% else %}
+<p>{% trans "This portal does not have a podcast episode. Click 'Create Podcast' to post one." %}</p>
+{% endif %}
+
+<div class="bottom-controller">
+	<a href="{% url backend.views.podcast_create portal.address %}" id="create-podcast-button">{% trans "Create" %}</a>
+	<a href="{% url backend.views.podcast_list portal.address %}" id="manage-podcast-button">{% trans "Manage" %}</a>
+</div>
+
+</div>
+
+<div class="clear"></div>
+
+{% endblock %}
+
+{% block sidebar %}
+
+<div class="title">{% trans "Portal Information" %}</div>
+
+<div class="bottom-controller">
+	<a href="{% url backend.views.portal_edit portal.address %}" id="edit-portal-button">{% trans "Edit" %}</a>
+	<a href="{% view_url portal %}" id="view-portal-button" target="_blank">{% trans "View" %}</a>
+</div>
+
+<br />
+
+<table>
+	<tr>
+		<td>{% trans "Title" %}:</td>
+		<td colspan="2">{{ portal.title }}</td>
+	</tr>
+	<tr>
+		<td>{% trans "Address" %}:</td>
+		<td colspan="2"><a href="{% view_url portal %}" target="_blank">{{ portal.address }}</a></td>
+	</tr>
+	<tr>
+		<td>{% trans "Theme" %}:</td>
+		<td>
+			{% if portal.custom_css %}
+			{% trans "Customized" %}
+			{% else %}
+			-
+			{% endif %}
+		</td>
+		<td><a href="{% url backend.views.portal_theme portal.address %}" id="set-theme">{% trans "Set" %}</a></td>
+	</tr>
+	<tr>
+		<td colspan="3">{% trans "Home Page (from high to low priority)" %}:</td>
+	</tr>
+	<tr>
+		<td>:{% trans "Event" %}:</td>
+		<td>{{ portal.homepage_event|dash }}</td>
+		<td><a href="{% url backend.views.portal_homepage_event portal.address %}" id="set-homepage-event">{% trans "Set" %}</a></td>
+	</tr>
+	<tr>
+		<td>:{% trans "News" %}:</td>
+		<td>{{ portal.homepage_news|dash }}</td>
+		<td><a href="{% url backend.views.portal_homepage_news portal.address %}" id="set-homepage-news">{% trans "Set" %}</a></td>
+	</tr>
+	<tr>
+		<td>:{% trans "Book Page" %}:</td>
+		<td>{{ portal.homepage_page|dash }}</td>
+		<td><a href="{% url backend.views.portal_homepage_page portal.address %}" id="set-homepage-page">{% trans "Set" %}</a></td>
+	</tr>
+</table>
+
+<div class="title">{% trans "Keywords and Categories" %}</div>
+<table>
+	<tr>
+		<td>{% trans "Keywords" %}:</td>
+		<td>
+			<a href="{% url backend.views.keyword_create portal.address %}" id="create-keyword">{% trans "Create" %}</a>
+			<a href="{% url backend.views.keyword_list portal.address %}" id="manage-keyword">{% trans "Manage" %}</a>
+		</td>
+	</tr>
+	<tr>
+		<td>{% trans "News Categories" %}:</td>
+		<td>
+			<a href="{% url backend.views.newscategory_create portal.address %}" id="create-newscategory">{% trans "Create" %}</a>
+			<a href="{% url backend.views.newscategory_list portal.address %}" id="manage-newscategory">{% trans "Manage" %}</a>
+		</td>
+	</tr>
+	<tr>
+		<td>{% trans "Event Categories" %}:</td>
+		<td>
+			<a href="{% url backend.views.eventcategory_create portal.address %}" id="create-eventcategory">{% trans "Create" %}</a>
+			<a href="{% url backend.views.eventcategory_list portal.address %}" id="manage-eventcategory">{% trans "Manage" %}</a>
+		</td>
+	</tr>
+	<tr>
+		<td>{% trans "Podcast Categories" %}:</td>
+		<td>
+			<a href="{% url backend.views.podcastcategory_create portal.address %}" id="create-podcastcategory">{% trans "Create" %}</a>
+			<a href="{% url backend.views.podcastcategory_list portal.address %}" id="manage-podcastcategory">{% trans "Manage" %}</a>
+		</td>
+	</tr>
+</table>
+
+<div class="title">{% trans "Contributors" %}</div>
+<p>{{ portal.contributors|contributor_list }}</p>
+<p>
+	<a href="{% url backend.views.contributor_create portal.address %}" id="create-contributor-button">{% trans "Add" %}</a>
+	<a href="{% url backend.views.contributor_list portal.address %}" id="manage-contributor-button">{% trans "Manage" %}</a>
+</p>
+
+<script type="text/javascript">
+	new YAHOO.widget.Button('create-page-button');
+	new YAHOO.widget.Button('manage-page-button');
+
+	{% if recently_modified_pages %}
+	var pagesSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("recently-modified-pages-table"));
+	pagesSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+	pagesSource.responseSchema = {
+		fields: [{key:"{% trans "Title" %}"}]
+	};
+	var pagesTable = new YAHOO.widget.DataTable("recently-modified-pages", [{key:"{% trans "Title" %}"}], pagesSource);
+	{% endif %}
+
+	new YAHOO.widget.Button('create-news-button');
+	new YAHOO.widget.Button('manage-news-button');
+
+	{% if recent_news %}
+	var newsSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("recent-news-table"));
+	newsSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+	newsSource.responseSchema = {
+		fields: [{key:"{% trans "Title" %}"}]
+	}
+	var newsTable = new YAHOO.widget.DataTable("recent-news", [{key:"{% trans "Title" %}"}], newsSource);
+	{% endif %}
+
+	new YAHOO.widget.Button('create-event-button');
+	new YAHOO.widget.Button('manage-event-button');
+
+	{% if recent_events %}
+	var eventsSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("recent-events-table"));
+	eventsSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+	eventsSource.responseSchema = {
+		fields: [{key:"{% trans "Title" %}"}]
+	}
+	var eventsTable = new YAHOO.widget.DataTable("recent-events", [{key:"{% trans "Title" %}"}], eventsSource);
+	{% endif %}
+
+	new YAHOO.widget.Button('create-file-button');
+	new YAHOO.widget.Button('manage-file-button');
+
+	{% if recently_modified_files %}
+	var filesSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("recently-modified-files-table"));
+	filesSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+	filesSource.responseSchema = {
+		fields: [{key:"{% trans "File Name" %}"}]
+	}
+	var filesTable = new YAHOO.widget.DataTable("recently-modified-files", [{key:"{% trans "File Name" %}"}], filesSource);
+	{% endif %}
+
+	new YAHOO.widget.Button('create-podcast-button');
+	new YAHOO.widget.Button('manage-podcast-button');
+
+	{% if recent_podcasts %}
+	var podcastsSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("recent-podcasts-table"));
+	podcastsSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+	podcastsSource.responseSchema = {
+		fields: [{key:"{% trans "Title" %}"}]
+	}
+	var podcastsTable = new YAHOO.widget.DataTable("recent-podcasts", [{key:"{% trans "Title" %}"}], podcastsSource);
+	{% endif %}
+
+	/* sidebar */
+
+	new YAHOO.widget.Button('view-portal-button');
+	new YAHOO.widget.Button('edit-portal-button');
+
+	new YAHOO.widget.Button('set-theme');
+	new YAHOO.widget.Button('set-homepage-page');
+	new YAHOO.widget.Button('set-homepage-news');
+	new YAHOO.widget.Button('set-homepage-event');
+
+	new YAHOO.widget.Button('create-keyword');
+	new YAHOO.widget.Button('manage-keyword');
+
+	new YAHOO.widget.Button('create-newscategory');
+	new YAHOO.widget.Button('manage-newscategory');
+
+	new YAHOO.widget.Button('create-eventcategory');
+	new YAHOO.widget.Button('manage-eventcategory');
+
+	new YAHOO.widget.Button('create-podcastcategory');
+	new YAHOO.widget.Button('manage-podcastcategory');
+
+	new YAHOO.widget.Button('create-contributor-button');
+	new YAHOO.widget.Button('manage-contributor-button');
+
+</script>
+
+{% endblock %}

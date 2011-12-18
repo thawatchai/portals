@@ -1,0 +1,61 @@
+{% extends "f/base.html" %}
+{% load i18n %}
+{% load frontend_extras %}
+
+{% block title %}
+{% if title %}
+	{{ title }} :: 
+{% endif %}
+{% if obj %}
+	{{ obj.title }} ::
+{% endif %}
+{{ portal.title }}
+{% endblock %}
+
+{% block body %}
+
+{% if portal.left_sidebar %}
+<div class="grid_4 alpha" id="sidebar-outer">
+	<div id="sidebar">
+		<div id="sidebar-inner">
+			{% include "f/base2_sidebar.html" %}
+		</div>
+	</div>
+</div>
+{% endif %}
+
+<div class="grid_8 alpha omega" id="content-outer">
+	<div id="content">
+		<div id="content-inner">
+			{% block content %}
+
+			<div class="title"><span class="title-text">{% trans "No Homepage" %}</span></div>
+			<p>{% trans "Please set a homepage for this portal." %}</p>
+
+			{% endblock %}
+		</div>
+	</div>
+</div>
+
+{% if not portal.left_sidebar %}
+<div class="grid_4 omega" id="sidebar-outer">
+	<div id="sidebar">
+		<div id="sidebar-inner">
+			{% include "f/base2_sidebar.html" %}
+		</div>
+	</div>
+</div>
+{% endif %}
+
+<div class="clear"></div>
+
+<script type="text/javascript">
+	YAHOO.util.Event.addListener(window, "load", function() {
+		var t = $('#toc-tree');
+		if (t.children().length == 0) {
+			t.append('<p>{% trans "This portal does not have a book page." %}</p>');
+		}
+	});
+</script>
+
+{% endblock %}

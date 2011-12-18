@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load frontend_extras %}
+
+<div class="item-info">
+	<strong>{% trans "Category" %}:</strong> <a href="{% domain_url portal frontend.views.podcast_list_by_category portal.address obj.category.slug %}">{{ obj.category }}</a>
+	&nbsp;
+	<strong>{% trans "Keywords" %}:</strong> {% keyword_list obj.keywords portal "podcast" %} 
+	<br />
+	<strong>{% trans "Type" %}:</strong> {{ obj.media_type }}
+	&nbsp;
+	<strong>{% trans "Length" %}:</strong> {{ obj.enclosure_length }}
+	<br />
+	<strong>{% trans "Created" %}:</strong> {{ obj.created_at }} 
+	&nbsp;
+	<strong>{% trans "Modified" %}:</strong> {{ obj.modified_at }} 
+</div>

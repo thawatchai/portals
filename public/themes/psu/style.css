@@ -1,0 +1,84 @@
+@import url("/themes/optimist/style.css");
+
+html {
+	background: #A5C4DC url(/themes/psu/site-bg.png) repeat-x scroll center top;
+}
+
+body {
+	color: #4d4d4f;
+}
+
+a:link {
+	color: #0000de;
+}
+
+a:visited {
+	color: #5500ab;
+}
+
+#head-block {
+	height: 108px;
+	background: #456F0F;
+	background: url(/themes/psu/hd-bg.png);
+	border-bottom: none;
+}
+
+#head-block-inner {
+	padding-left: 110px;
+}
+
+#foot-block {
+	color: #fff;
+	padding: 12px 0px 12px 6px;
+	background: #016DA7;
+	border-top: none;
+}
+
+#body-block {
+	border-top: none;
+}
+
+#body-block div.title {
+	font-size: 1.3em;
+	color: #004088;
+	padding: 10px 4px 4px;
+	margin-bottom: 8px;
+	background-image: url(/themes/psu/content-title.png);
+	background-repeat: repeat-x;
+	background-position: bottom;
+	border-bottom: none;
+}
+
+#sidebar-outer {
+	background-image: url(/themes/psu/sidebar-bg.png);
+	background-repeat: repeat-y;
+	background-position: right;
+	padding-bottom: 20px;
+}
+
+#sidebar div.title {
+	background-image: url(/themes/psu/sidebar-title.png);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	border: none;
+	padding-left: 4px;
+}
+
+#sidebar p {
+	padding-right: 18px;
+}
+
+ul.short-list li.more {
+	padding-right: 14px;
+}
+
+div#breadcrumbs-top {
+	padding: 4px 0px 6px 4px;
+	border-bottom: #5C9ED4 solid 2px;
+}
+
+div#breadcrumbs-bottom {
+	padding: 4px 0px 6px 4px;
+	border-top: #5C9ED4 solid 2px;
+}
+

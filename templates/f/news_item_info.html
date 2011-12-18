@@ -1,0 +1,12 @@
+{% load i18n %}
+{% load frontend_extras %}
+
+<div class="item-info">
+	<strong>{% trans "Category" %}:</strong> <a href="{% domain_url portal frontend.views.news_list_by_category portal.address obj.category.slug %}">{{ obj.category }}</a>
+	&nbsp;
+	<strong>{% trans "Keywords" %}:</strong> {% keyword_list obj.keywords portal "news" %} 
+	<br />
+	<strong>{% trans "Created" %}:</strong> {{ obj.created_at }} 
+	&nbsp;
+	<strong>{% trans "Modified" %}:</strong> {{ obj.modified_at }} 
+</div>

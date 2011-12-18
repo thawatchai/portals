@@ -1,0 +1,107 @@
+body {
+	padding: 10px;
+	text-align: left;
+}
+
+p {
+	padding: 4px 12px 4px 8px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	padding: 8px 4px 4px;
+}
+
+h1 { font-size: 160%; }
+h2 { font-size: 150%; }
+h3 { font-size: 140%; }
+h4 { font-size: 130%; }
+h5 { font-size: 120%; }
+h6 { font-size: 110%; }
+
+strong {
+	font-weight: bold;
+}
+
+hr {
+	border: 0;
+	color: #ccc;
+	background-color: #ccc;
+	height: 1px;
+}
+
+table {
+}
+
+th {
+	text-align: center;
+	font-weight: bold;
+	padding: 2px;
+}
+
+td {
+	padding: 2px;
+}
+
+#common-form th {
+	text-align: right;
+}
+
+li {
+	list-style-position: inside;
+	margin-left: 20px;
+	padding: 4px 0px;
+}
+
+ul li {
+	list-style-type: disc;
+}
+
+ol li {
+	list-style-type: decimal;
+}
+
+div#toc-tree li {
+	list-style-position: inside;
+	margin-left: 10px;
+	padding: 4px 2px 0px;
+	list-style-image: url(/images/menu-collapsed.png);
+}
+
+div#toc-tree li.expanded {
+	list-style-image: url(/images/menu-expanded.png);
+}
+
+div#toc-tree li.leaf {
+	list-style-image: url(/images/menu-leaf.png);
+}
+
+div#toc-tree span.selected {
+	font-weight: bold;
+}
+
+div#toc-tree a:link, div#toc-tree a:visited {
+	text-decoration: none;
+}
+
+ul.short-list li {
+	list-style-position: outside;
+	list-style-image: url(/images/menu-leaf.png);
+	padding: 4px 0px;
+	margin-left: 26px;
+}
+
+ul.short-list li.more {
+	list-style-image: none;
+	list-style-type: none;
+	text-align: right;
+}
+
+div#map {
+	width: 400px;
+	height: 400px;
+	margin: 10px 4px;
+}
+
+div#content-outer {
+	width: 630px;
+}

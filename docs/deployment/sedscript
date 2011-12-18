@@ -1,0 +1,7 @@
+s/^DEBUG = True/DEBUG = False/g
+s/^DATABASE_NAME.*/DATABASE_NAME = 'portal'/g
+s/^DATABASE_USER.*/DATABASE_USER = 'portal'/g
+s/^DATABASE_PASSWORD.*/DATABASE_PASSWORD = 'the-database-password'/g
+s/^SECRET_KEY.*/SECRET_KEY = 'the-secret-key'/g
+s/^EMAIL_HOST.*/EMAIL_HOST = 'smtp-hostname'/g
+s/^.*# ('Your Name', 'your_email@domain.com'),.*/('your-real-name', 'your@hostname'),/g

@@ -1,0 +1,33 @@
+{% extends "f/base2.html" %}
+{% load i18n %}
+{% load frontend_extras %}
+
+{% block content %}
+
+<div class="title">{{ title }}</div>
+
+{% for obj in portal.sticky_news %}
+<div class="sticky">
+	{% include "f/news_list_item.html" %}
+</div>
+{% endfor %}
+
+{% ifequal total 0 %}
+<p>{% trans "This portal does not have any news, or all news are marked sticky." %}</p>
+{% else %}
+
+<div class="pagination"><div id="paginator-top"></div></div>
+
+{% for obj in page.object_list %}
+	{% include "f/news_list_item.html" %}
+{% empty %}
+	<p><center>{% trans "No news in this category." %}</center></p>
+{% endfor %}
+
+<div class="pagination"><div id="paginator-bottom"></div></div>
+
+{% include "f/pagination.html" %}
+
+{% endifequal %}
+
+{% endblock %}

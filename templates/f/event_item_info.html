@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load frontend_extras %}
+
+<div class="item-info">
+	<strong>{% trans "Category" %}:</strong> <a href="{% domain_url portal frontend.views.event_list_by_category portal.address obj.category.slug %}">{{ obj.category }}</a>
+	&nbsp;
+	<strong>{% trans "Keywords" %}:</strong> {% keyword_list obj.keywords portal "event" %} 
+	<br />
+	{% if obj.upcoming %}
+	<strong>{% trans "Upcoming" %}:</strong> {{ obj.begin|timeuntil }}
+	{% endif %}
+	&nbsp;
+	<strong>{% trans "Begin" %}:</strong> {{ obj.begin }} 
+	&nbsp;
+	<strong>{% trans "End" %}:</strong> {{ obj.end }} 
+</div>

@@ -1,0 +1,40 @@
+{% extends "b/base2l.html" %}
+{% load i18n %}
+
+{% block content %}
+
+{% if sys_info.login_form_title %}
+<div class="title">{{ sys_info.login_form_title }}</div>
+{% endif %}
+
+{% if sys_info.login_form_message %}
+{{ sys_info.login_form_message|safe|linebreaks }}
+{% endif %}
+
+{% endblock %}
+
+{% block sidebar %}
+
+<div class="title">{% trans "Login" %}</div>
+
+{% if error %}
+<ul class="errorlist"><li>{{ error }}</li></ul>
+{% endif %}
+
+<div id="login-form">
+<form method="POST" action="">
+	<table>
+		{{ form.as_table }}
+		<tr>
+			<td>&nbsp;</td>
+			<td><input type="submit" id="submit-button" value="{% trans "Login" %}" /></td>
+			<script type="text/javascript">
+				new YAHOO.widget.Button("submit-button");
+			</script>
+		</tr>
+	</table>
+</form>
+</div>
+
+
+{% endblock %}

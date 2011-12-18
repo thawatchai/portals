@@ -1,0 +1,31 @@
+{% load i18n %}
+
+<script type="text/javascript">
+	var page = new YAHOO.widget.Paginator({
+			rowsPerPage: {{ ITEMS_PER_PAGE }},
+			totalRecords: {{ total }},
+			containers: ['paginator-top', 'paginator-bottom'],
+
+			firstPageLinkLabel: "&laquo; {% trans "first" %}",
+			firstPageLinkClass: "paginator-link",
+
+			previousPageLinkLabel: "&lsaquo; {% trans "previous" %}",
+			previousPageLinkClass: "paginator-link",
+
+			nextPageLinkLabel: "{% trans "next" %} &rsaquo;",
+			nextPageLinkClass: "paginator-link",
+
+			lastPageLinkLabel: "{% trans "last" %} &raquo;",
+			lastPageLinkClass: "paginator-link",
+
+			pageLinksContainerClass: "paginator-link",
+			pageLinkClass: "paginator-page-link",
+			currentPageClass: "paginator-current",
+			});
+	page.setState({page: {{ page.number }}});
+	page.render();
+
+	page.subscribe('changeRequest', function(newState) {
+			document.location = '?page=' + newState.page;
+			});
+</script>

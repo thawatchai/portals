@@ -1,0 +1,22 @@
+{% extends "b/base2r.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="title">{{ title }}</div>
+
+{% if message_title %}<div style="text-align: center;"><b>{{ message_title }}</b></div>{% endif %}
+
+<p>{{ message|striptags|escapejs|truncatewords:200 }}</p>
+
+<form method="POST" action="">
+	<input type="submit" id="yes-button" value="{% trans "Yes" %}" name="yes" />
+	<input type="submit" id="no-button" value="{% trans "No" %}" name="no" />
+</form>
+
+<script type="text/javascript">
+	var y = new YAHOO.widget.Button("yes-button");
+	var n = new YAHOO.widget.Button("no-button");
+</script>
+
+{% endblock %}

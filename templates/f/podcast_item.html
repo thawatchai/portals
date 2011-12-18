@@ -1,0 +1,70 @@
+{% extends "f/base2.html" %}
+{% load i18n %}
+{% load frontend_extras %}
+
+{% block content %}
+
+<div class="title"><span class="title-text">{{ obj.title }}</span></div>
+
+{% if enable_flowplayer %}
+<div class="player-frame">
+	{% if obj.is_audio %}
+
+	<div id="player" style="display:block;width:480px;height:30px;"
+		href="{{ obj.enclosure_url }}"></div>
+
+	<script type="text/javascript">
+		$f("player", "/flowplayer/flowplayer-3.0.7.swf", { 
+
+			// fullscreen button not needed here 
+			plugins: { 
+				audio: { 
+					url: '/flowplayer/flowplayer.audio-3.0.4.swf' 
+				},
+				controls: { 
+					fullscreen: false, 
+					height: 30 
+				} 
+			}, 
+			clip: { 
+				//autoPlay: false, 
+		 
+				// optional: when playback starts close the first audio playback 
+				onBeforeBegin: function() { 
+					$f("player").close(); 
+				} 
+			} 
+		});
+	</script>
+	{% endif %}
+
+	{% if obj.is_video %}
+	<div id="player" style="display:block;width:480px;height:390px;" 
+		href="{{ obj.enclosure_url }}"></div>
+
+	<script type="text/javascript">
+		$f("player", "/flowplayer/flowplayer-3.0.7.swf", { 
+			plugins: {
+				controls: { 
+					height: 30 
+				} 
+			},
+			clip: { 
+				//autoPlay: false
+				}
+		});
+	</script>
+	{% endif %}
+</div>
+{% endif %}
+
+<div class="download-frame">
+	<strong>{% trans "Download" %}:</strong> <a href="{{ obj.enclosure_url }}">{{ obj.enclosure_url|split_filename }}</a>
+</div>
+
+{{ obj.content|safe }}
+
+{% include "f/embedded_map.html" %}
+{% include "f/podcast_item_info.html" %}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "f/base2.html" %}
+{% load i18n %}
+{% load frontend_extras %}
+
+{% block content %}
+
+<div class="title">{% trans "Podcasts" %}</div>
+
+{% for obj in portal.sticky_podcast %}
+<div class="sticky">
+	{% include "f/podcast_list_item.html" %}
+</div>
+{% endfor %}
+
+{% ifequal total 0 %}
+<p>{% trans "This portal does not have any podcast episode, or all podcast episodes are marked sticky." %}</p>
+{% else %}
+
+<div class="list-item">
+{% for category in categories.object_list %}
+	<div class="item-title">
+		{{ category.title|linebreaks }}
+	</div>
+	<ul>
+	{% for podcast in category.recent_podcasts %}
+		<li><a href="{% domain_url portal frontend.views.podcast_item portal.address podcast.id %}">{{ podcast.title }}</a></li>
+	{% empty %}
+		<p><center>{% trans "No podcast." %}</center></p>
+	{% endfor %} 
+	</ul>
+	{% if category.more_recent_podcast %}
+		<p align="right"><a href="{% domain_url portal frontend.views.podcast_list_by_category portal.address category.slug %}">{% trans "more" %} &raquo;</a></p>	
+	{% endif %}
+{% endfor %}
+</div>
+
+{% include "f/pagination.html" %}
+
+{% endifequal %}
+
+{% endblock %}

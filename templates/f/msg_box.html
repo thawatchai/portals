@@ -1,0 +1,28 @@
+{% extends "f/base.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Page Not Found" %}
+-
+{{ sys_info.site_title }}
+{% endblock %}
+
+{% block hd_title %}
+<h1>{{ sys_info.site_title }}</h1>
+{% endblock %}
+
+{% block body %}
+<p>{{ msg }}</p>
+
+<p>
+{% if not request.META.HTTP_REFERER %}
+<a href="/" id="ok-button">{% trans "OK" %}</a>
+{% else %}
+<a href="{{ request.META.HTTP_REFERER }}" id="ok-button">{% trans "Back" %}</a>
+{% endif %}
+</p>
+
+<script type="text/javascript">
+	new YAHOO.widget.Button('ok-button');
+</script>
+{% endblock %}

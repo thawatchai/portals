@@ -1,0 +1,13 @@
+{% extends "f/base2.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="title">{{ obj.title }}</div>
+
+{{ obj.content|safe }}
+
+{% include "f/embedded_map.html" %}
+{% include "f/event_item_info.html" %}
+
+{% endblock %}

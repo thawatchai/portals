@@ -1,0 +1,55 @@
+{% extends "b/base2r.html" %}
+{% load i18n %}
+{% load backend_extras %}
+
+{% block content %}
+
+<div class="controller">
+	{% if create_item_info %}
+		<a href="{{ create_item_info.url }}" id="create-item-button">{{ create_item_info.label }}</a>
+	{% endif %}
+	<a href="{% url_format url_prefix create portal.address %}" id="create-category-button">{% trans "Create" %}</a>
+</div>
+
+<div class="title">{{ title }}</div>
+
+{% if categories %}
+<div id="categories">
+	<table id="categories-table">
+		{% for category in categories %}
+		<tr>
+			<td><a href="{% url_format url_prefix edit portal.address category.slug %}">{{ category.title }}</a></td>
+			<td>{{ category.slug }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% else %}
+<p>{{ no_item_msg }}</p>
+{% endif %}
+
+<script type="text/javascript">
+	YAHOO.util.Event.addListener(window, "load", function() {
+		new YAHOO.widget.Button('create-category-button');
+		{% if create_item_info %}
+		new YAHOO.widget.Button('create-item-button');
+		{% endif %}
+
+		{% if categories %}
+		var categoriesSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("categories-table"));
+		categoriesSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+		categoriesSource.responseSchema = {
+			fields: [
+					{key:"{% trans "Title" %}"},
+					{key:"{% trans "Slug" %}"}
+					]
+		};
+		var categoriesTable = new YAHOO.widget.DataTable("categories", [
+			{key:"{% trans "Title" %}"},
+			{key:"{% trans "Slug" %}"}
+			], categoriesSource);
+		{% endif %}
+	});
+</script>
+
+{% endblock %}

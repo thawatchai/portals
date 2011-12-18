@@ -1,0 +1,22 @@
+{% extends "f/base2.html" %}
+{% load i18n %}
+{% load frontend_extras %}
+
+{% block content %}
+
+<div class="title">{% trans "Portals" %}</div>
+
+<div class="pagination"><div id="paginator-top"></div></div>
+
+{% for portal_item in page.object_list %}
+<div class="list-item">
+	<div class="item-title"><a href="{% url frontend.views.portal_home portal_item.address %}">{{ portal_item.title }}</a></div>
+	{{ portal_item.description|striptags|truncatechars:350 }}
+</div>
+{% endfor %}
+
+<div class="pagination"><div id="paginator-bottom"></div></div>
+
+{% include "f/pagination.html" %}
+
+{% endblock %}

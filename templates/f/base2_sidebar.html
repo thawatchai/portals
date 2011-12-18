@@ -1,0 +1,134 @@
+{% load i18n %}
+{% load cache %}
+{% load frontend_extras %}
+
+{% block sidebar %}
+
+<div class="block">
+	<div class="title">
+		<div id="title-toc"><span class="title-text">{% trans "Table of Contents" %}</span></div>
+	</div>
+	<div id="toc-tree">
+		{% if page_obj %}
+		{% cache 86400 page_toc obj.id %}
+		{{ portal|page_toc:obj }}
+		{% endcache %}
+		{% else %}
+		{% cache 86400 root_toc portal.address %}
+		{{ portal|root_toc }}
+		{% endcache %}
+		{% endif %}
+	</div>
+
+	{% for n in portal.sticky_pages %}
+	{% if forloop.first %}
+	<div class="title">
+		<div id="title-recommended-book-pages"><span class="title-text">{% trans "Recommended Book Pages" %}</span></div>
+	</div>
+	<ul class="short-list">
+		{% endif %}
+		<li><a href="{% domain_url portal frontend.views.page_item portal.address n.id %}">{{ n.title }}</a></li>
+		{% if forloop.last %}
+	</ul>
+	{% endif %}
+	{% endfor %}
+</div>
+
+{% cache 86400 sidebar_news portal.address %}
+
+<div class="block">
+	<div class="title">
+		<div id="title-recent-news"><span class="title-text">{% trans "Recent News" %}</span></div>
+	</div>
+	<ul class="short-list">
+		{% ifnotequal portal.public_news_count 0 %}
+		{% for n in portal.sticky_news %}
+		<li><a href="{% domain_url portal frontend.views.news_item portal.address n.id %}">{{ n.title }}</a></li>
+		{% endfor %}
+		{% for n in portal.recent_news %}
+		<li><a href="{% domain_url portal frontend.views.news_item portal.address n.id %}">{{ n.title }}</a></li>
+		{% endfor %}
+		<li class="more"><a href="{% domain_url portal frontend.views.news_category_list portal.address %}">{% trans "all news" %} &raquo;</a></li>
+		{% else %}
+		<li>{% trans "No recent news." %}</li>
+		{% endifnotequal %}
+	</ul>
+</div>
+
+{% endcache %}
+
+{% cache 86400 sidebar_events portal.address %}
+
+<div class="block">
+	<div class="title">
+		<div id="title-upcoming-events"><span class="title-text">{% trans "Upcoming Events" %}</span></div>
+	</div>
+	<ul class="short-list">
+		{% ifnotequal portal.upcoming_events.count 0 %}
+		{% for n in portal.upcoming_events %}
+		<li><a href="{% domain_url portal frontend.views.event_item portal.address n.id %}">{{ n.title }}</a> <span class="item-time">({{ n.begin|timeuntil }})</span></li>
+		{% endfor %}
+		{% else %}
+		{# waiting for empty in 1.1 #}
+		<li>{% trans "No upcoming events." %}</li>
+		{% endifnotequal %}
+		{% ifnotequal portal.public_event_count 0 %}
+		<li class="more"><a href="{% domain_url portal frontend.views.event_category_list portal.address %}">{% trans "all events" %} &raquo;</a></li>
+		{% endifnotequal %}
+	</ul>
+</div>
+
+{% endcache %}
+
+{% cache 86400 sidebar_podcasts portal.address %}
+
+<div class="block">
+	<div class="title">
+		<div id="title-recent-podcasts"><span class="title-text">{% trans "Recent Podcasts" %}</span></div>
+	</div>
+	<ul class="short-list">
+		{% ifnotequal portal.public_podcast_count 0 %}
+		{% for n in portal.sticky_podcasts %}
+		<li><a href="{% domain_url portal frontend.views.podcast_item portal.address n.id %}">{{ n.title }}</a></li>
+		{% endfor %}
+		{% for n in portal.recent_podcasts %}
+		<li><a href="{% domain_url portal frontend.views.podcast_item portal.address n.id %}">{{ n.title }}</a></li>
+		{% endfor %}
+		<li class="more"><a href="{% domain_url portal frontend.views.podcast_category_list portal.address %}">{% trans "all podcasts" %} &raquo;</a></li>
+		{% else %}
+		<li>{% trans "No recent podcasts." %}</li>
+		{% endifnotequal %}
+	</ul>
+</div>
+
+{% endcache %}
+
+{% cache 86400 sidebar_others portal.address %}
+
+<div class="block">
+	<div class="title">
+		<div id="title-portal-info"><span class="title-text">{% trans "Portal Information" %}</span></div>
+	</div>
+	{{ portal.description|safe|linebreaks }}
+</div>
+
+<div class="block">
+	<div class="title">
+		<div id="title-contact"><span class="title-text">{% trans "Contact" %}</span></div>
+	</div>
+	{{ portal.contact_information|safe|linebreaks }}
+</div>
+
+{% if portal.other_information %}
+<div class="block">
+	<div class="title">
+		<div id="title-other-info"><span class="title-text">{% trans "Other Information" %}</span></div>
+	</div>
+	{{ portal.other_information|safe|linebreaks }}
+</div>
+{% endif %}
+
+{% endcache %}
+
+{% endblock %}
+

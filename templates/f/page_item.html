@@ -1,0 +1,40 @@
+{% extends "f/base2.html" %}
+{% load i18n %}
+{% load cache %}
+{% load frontend_extras %}
+
+{% block content %}
+
+{% cache 86400 page_item obj.id %}
+
+<div class="title">{{ obj.title }}</div>
+
+{{ obj.content|safe }}
+
+{% if obj.show_children %}
+{% for child in obj.children %}
+{% if forloop.first %}
+<div class="page-children-list">
+	<ul>
+		{% endif %}
+		<li><a href="{% domain_url portal frontend.views.page_item portal.address child.id %}">{{ child.title }}</a></li>
+		{% if forloop.last %}
+	</ul>
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% include "f/embedded_map.html" %}
+
+<div class="item-info">
+	<strong>{% trans "Keywords" %}:</strong> {% keyword_list obj.keywords portal "page" %} 
+	<br />
+	<strong>{% trans "Created" %}:</strong> {{ obj.created_at }} 
+	&nbsp;
+	<strong>{% trans "Modified" %}:</strong> {{ obj.modified_at }} 
+</div>
+
+{% endcache %}
+
+{% endblock %}

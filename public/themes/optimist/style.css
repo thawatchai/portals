@@ -1,0 +1,184 @@
+html {
+	background: #E0E4CC;
+}
+
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+}
+
+a:link {
+	color: #0000de;
+}
+
+a:visited {
+	color: #5500ab;
+}
+
+#main-block-outer {
+	background: #fff;
+	padding: 6px;
+}
+
+#main-block {
+}
+
+#head-block-outer {
+}
+
+#head-block {
+	padding: 16px 0px 8px 6px;
+	border-bottom: solid 6px #d0f66e;
+	height: 100px;
+	background: #456F0F;
+}
+
+#head-block h1 {
+	font-size: 2.2em;
+	font-weight: bold;
+	color: #fff;
+	padding: 0px;
+}
+
+#head-block h2 {
+	font-size: 1.2em;
+	color: #fff;
+	padding: 0px;
+}
+
+#body-block {
+	border-top: solid 1px #ABCA5A;
+}
+
+#body-block div.title {
+	font-size: 1.3em;
+	color: #121e03;
+	border-bottom: solid 1px #ABCA5A;
+	padding: 10px 6px 2px;
+	margin-bottom: 8px;
+}
+
+#body-block span.title-text {
+}
+
+#body-block .player-frame {
+	padding: 10px 10px 10px;
+}
+
+#body-block #player {
+}
+
+#body-block .download-frame {
+	padding: 10px 0px 20px;
+}
+
+#foot-block-outer {
+}
+
+#foot-block {
+	border-top: solid 1px #ABCA5A;
+	background: #CBE688;
+	padding: 6px 0px 12px 6px;
+}
+
+div.list-item {
+	padding: 4px 0px;
+}
+
+div.list-item div.item-title {
+	font-size: 130%;
+	margin: 4px 0px;
+}
+
+div.item-info {
+	padding: 10px 4px;
+	margin-top: 10px;
+	text-align: right;
+}
+
+span.item-time {
+}
+
+div.sticky {
+	padding: 0px 4px 0px 0px;
+	margin-bottom: 2px;
+	border-bottom: dashed 1px #121e03;
+}
+
+div.pagination {
+	text-align: center;
+	padding: 2px 0px;
+	color: #8e918b;
+}
+
+div#paginator-bottom {
+	padding-top: 10px;
+}
+
+.paginator-link {
+	padding: 0px 4px;
+}
+
+.paginator-link a:link, .paginator-link a:visited,
+.paginator-page-link a:link, .paginator-page-link a:visited,
+div#toc-tree a:link, div#toc-tree a:visited,
+div.breadcrumbs a:link, div.breadcrumbs a:visited,
+div#ft a:link, div#ft a:visited,
+li.more a:link, li.more a:visited
+{
+	color: #0000de;
+}
+
+.paginator-page-link {
+	border: 1px solid #ccc;
+	padding: 4px 6px;
+	margin: 2px;
+}
+
+.paginator-current {
+	color: #000;
+	font-weight: bold;
+	border: none;
+	padding: 4px 8px;
+}
+
+div#breadcrumbs-top {
+	padding: 4px 0px;
+}
+
+div#breadcrumbs-bottom {
+	padding: 4px 0px 6px;
+}
+
+#system-announcement {
+	text-align: center;
+	padding: 4px;
+}
+
+#sys_ft {
+	text-align: center;
+	padding: 4px;
+}
+
+#portal-announcement {
+	text-align: center;
+	padding: 4px;
+}
+
+#portal_footer {
+}
+
+div.block {
+}
+
+div.page-children-list {
+	padding: 6px 0px;
+}
+
+div.page-children-list li {
+	list-style-type: disc;
+}
+

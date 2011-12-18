@@ -1,0 +1,40 @@
+{% extends "f/base2.html" %}
+{% load i18n %}
+{% load frontend_extras %}
+
+{% block content %}
+
+<div class="title">{% trans "System Statistics" %}</div>
+
+<table>
+	<tr>
+		<th>{% trans "Item" %}</th>
+		<th>{% trans "Statistics" %}</th>
+	</tr>
+	<tr>
+		<td>{% trans "Number of Users" %}</td>
+		<td style="text-align: right;">{{ users }}</td>
+	</tr>
+	<tr>
+		<td>{% trans "Number of Portals" %}</td>
+		<td style="text-align: right;">{{ portals }}</td>
+	</tr>
+	<tr>
+		<td>{% trans "Number of Pages" %}</td>
+		<td style="text-align: right;">{{ pages }}</td>
+	</tr>
+	<tr>
+		<td>{% trans "Number of News" %}</td>
+		<td style="text-align: right;">{{ news }}</td>
+	</tr>
+	<tr>
+		<td>{% trans "Number of Events" %}</td>
+		<td style="text-align: right;">{{ events }}</td>
+	</tr>
+	<tr>
+		<td>{% trans "Number of Files" %}</td>
+		<td style="text-align: right;">{{ mediafiles }}</td>
+	</tr>
+</table>
+
+{% endblock %}

@@ -1,0 +1,173 @@
+{% extends "b/base2l.html" %}
+{% load i18n %}
+{% load backend_extras %}
+{% load frontend_extras %}
+
+{% block sidebar %}
+
+<link rel="stylesheet" type="text/css" href="/yui/examples/treeview/assets/css/local/tree.css" />
+
+<div class="controller">
+	<a href="{% url portals.backend.views.page_create portal.address %}" id="create-page-button">{% trans "Create Page" %}</a>
+	<a href="" id="refresh-button">{% trans "Refresh" %}</a>
+</div>
+
+<div class="title">{% trans "Book Pages" %}</div>
+
+<div id="page-tree"></div>
+
+<div id="empty-msg" style="display:none;">
+	<p>{% trans "This portal does not have a book page. Click 'Create Page' to write one." %}</p>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="controller" id="action-div"></div>
+
+<div id="page-detail" style="display: none;">
+		<div id="page-detail-title" class="title"></div>
+		<div id="page-detail-address">{% trans "Address" %}: <span id="page-detail-address-span"></span></div>
+		<div id="page-detail-content"></div>
+		<div id="page-detail-info"></div>
+</div>
+
+<script type="text/javascript">
+
+	new YAHOO.widget.Button('create-page-button');
+	new YAHOO.widget.Button('refresh-button');
+
+	var edit_url = '{% url backend.views.page_edit portal.address 121212 %}';
+	var view_url = '{% url frontend.views.page_item portal.address 121212 %}';
+
+	var ancestor_id_list = new Object();
+	{% for id in pi.ancestor_id_list %}
+		ancestor_id_list[{{ id }}] = true;
+	{% endfor %}
+
+	YAHOO.util.Event.addListener(window, "load", function() {
+
+		$('#page-tree').empty();
+		var tree = new YAHOO.widget.TreeView('page-tree');
+
+		tree.setDynamicLoad(loadNodeData);
+
+		tree.subscribe('expand', function(node) {
+			page_info(node);
+		});
+		tree.subscribe('collapse', function(node) {
+			$('#messages').css('display', 'none');
+			page_info(node);
+		});
+		tree.subscribe('clickEvent', function(evt, node) {
+			$('#messages').css('display', 'none');
+		});
+
+		var root = tree.getRoot();
+
+		{% for page in root.children %}
+			var page = Portal.getTreeNodeById(root, '{{ page.id }}');
+			if (!page) {
+				page = new YAHOO.widget.TextNode('{{ page.title }}', root);
+				page.id = {{ page.id }};
+				page.title = '{{ page.title|escapejs }}';
+				page.content = '{{ page.content|strip_script|escapejs }}';
+				page.slug = '{{ page.slug|escapejs }}';
+				page.keywords = '{{ page.keywords|escapejs }}';
+				page.created = '{{ page.created|escapejs }}';
+				page.modified = '{{ page.modified|escapejs }}';
+				page.weight = '{{ page.weight|escapejs }}';
+				page.latitude = '{{ page.latitude|escapejs }}';
+				page.longitude = '{{ page.longitude|escapejs }}';
+			}
+			if (ancestor_id_list[page.id])
+				page.expand();
+		{% endfor %}
+
+		if (typeof(page) == 'undefined') $('#empty-msg').css('display', 'block');
+
+		tree.render();
+	});
+
+	function loadNodeData(node, fnLoadComplete) {
+		var callback = {
+			success: function(oResponse) {
+				if (oResponse.getResponseHeader['Content-Type'].indexOf('application/json') >= 0) {
+					var data = YAHOO.lang.JSON.parse(oResponse.responseText);
+					for (var i=0; i<data.children.length; i++) {
+						if (!Portal.getTreeNodeById(node, data.children[i].id)) {
+							var n = new YAHOO.widget.TextNode(data.children[i].title, node);
+							n.id = data.children[i].id;
+							n.title = data.children[i].title;
+							n.content = data.children[i].content;
+							n.slug = data.children[i].slug;
+							n.keywords = data.children[i].keywords;
+							n.created = data.children[i].created;
+							n.modified = data.children[i].modified;
+							n.weight = data.children[i].weight;
+							n.latitude = data.children[i].latitude;
+							n.longitude = data.children[i].longitude;
+							if (ancestor_id_list[n.id])
+								n.expand();
+						}
+					}
+					oResponse.argument.fnLoadComplete();
+				} else {
+					alert(Portal.responseError);
+					document.location.href = '{% url backend.views.page_list portal.address %}';
+				}
+			},
+			failure: function(oResponse) {
+				alert(Portal.connectionFailure);
+				oResponse.argument.fnLoadComplete();
+		 	},
+			argument: {
+				'node': node,
+				'fnLoadComplete': fnLoadComplete
+		  	},
+			timeout: 10000
+		}
+		YAHOO.util.Connect.asyncRequest('GET',
+				'/portals/{{ portal.address }}/pages/data/?node=' + node.id,
+				callback);
+	}
+
+	function set_div(id, c) {
+		var d = $(id);
+		d.empty();
+		d.append(c);
+	}
+
+	function page_info(node) {
+		var page_edit_url = edit_url.replace('121212', node.id);
+		var page_view_url = view_url.replace('121212', node.slug ? node.slug : node.id);
+
+		var dbn = $('#action-div');
+		dbn.empty();
+		dbn.append('<a href="' + page_edit_url + '" id="edit-button">{% trans "Edit" %}</a>');
+		dbn.append('&nbsp;');
+		dbn.append('<a href="{% url backend.views.page_create portal.address %}?source=' + node.id + '" id="copy-button">{% trans "Copy" %}</a>');
+		dbn.append('&nbsp;');
+		dbn.append('<a href="' + page_view_url + '" id="view-button" target="_blank">{% trans "View" %}</a>');
+		new YAHOO.widget.Button('view-button');
+		new YAHOO.widget.Button('copy-button');
+		new YAHOO.widget.Button('edit-button');
+
+		set_div('#page-detail-title', node.title);
+		set_div('#page-detail-address-span', '<input type="text" value="' + page_view_url + '" onfocus="this.select();" />');
+		set_div('#page-detail-content', node.content);
+		set_div('#page-detail-info',
+				'<b>{% trans "Latitude" %}:</b> ' + node.latitude + ' ' +
+				'<b>{% trans "Longitude" %}:</b> ' + node.longitude + '<br />' +
+				'<b>{% trans "Weight" %}:</b> ' + node.weight + ' ' +
+				'<b>{% trans "Keywords" %}:</b> ' + node.keywords + '<br />' +
+				'<b>{% trans "Created" %}:</b> ' + node.created + ' ' +
+				'<b>{% trans "Modified" %}:</b> ' + node.modified
+				);
+
+		$('#page-detail').css('display', 'block');
+	}
+</script>
+
+{% endblock %}

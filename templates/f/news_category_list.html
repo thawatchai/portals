@@ -1,0 +1,41 @@
+{% extends "f/base2.html" %}
+{% load i18n %}
+{% load frontend_extras %}
+
+{% block content %}
+
+<div class="title">{% trans "News" %}</div>
+
+{% for obj in portal.sticky_news %}
+<div class="sticky">
+	{% include "f/news_list_item.html" %}
+</div>
+{% endfor %}
+
+{% ifequal total 0 %}
+<p>{% trans "This portal does not have any news, or all news are marked sticky." %}</p>
+{% else %}
+
+<div class="list-item">
+{% for category in categories.object_list %}
+	<div class="item-title">
+		{{ category.title|linebreaks }}
+	</div>
+	<ul>
+	{% for news in category.recent_news %}
+		<li><a href="{% domain_url portal frontend.views.news_item portal.address news.id %}">{{ news.title }}</a></li>
+	{% empty %}
+		<p><center>{% trans "No news." %}</center></p>
+	{% endfor %} 
+	</ul>
+	{% if category.more_recent_news %}
+		<p align="right"><a href="{% domain_url portal frontend.views.news_list_by_category portal.address category.slug %}">{% trans "more" %} &raquo;</a></p>
+	{% endif %}
+{% endfor %}
+</div>
+
+{% include "f/pagination.html" %}
+
+{% endifequal %}
+
+{% endblock %}

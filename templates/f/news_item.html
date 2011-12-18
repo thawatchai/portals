@@ -1,0 +1,12 @@
+{% extends "f/base2.html" %}
+
+{% block content %}
+
+<div class="title">{{ obj.title }}</div>
+
+{{ obj.content|safe }}
+
+{% include "f/embedded_map.html" %}
+{% include "f/news_item_info.html" %}
+
+{% endblock %}

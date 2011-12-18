@@ -1,0 +1,28 @@
+{% load i18n %}
+
+<div id="list-pagination">
+
+	{% ifnotequal page.number 1 %}
+	<a href="?page=1" id="first-button">&laquo; {% trans "first" %}</a>
+	&nbsp;
+	{% endifnotequal %}
+
+	{% if page.has_previous %}
+	<a href="?page={{ page.previous_page_number }}" id="previous-button">&lsaquo; {% trans "previous" %}</a>
+	&nbsp;
+	{% endif %}
+
+	<span class="number">{{ page.number }}/{{ page.paginator.num_pages }}</span>
+
+	{% if page.has_next %}
+	&nbsp;
+	<a href="?page={{ page.next_page_number }}" id="next-button">{% trans "next" %} &rsaquo;</a>
+	{% endif %}
+
+	{% ifnotequal page.number page.paginator.num_pages %}
+	&nbsp;
+	<a href="?page={{ page.paginator.num_pages }}" id="last-button">{% trans "last" %} &raquo;</a>
+	{% endifnotequal %}
+
+</div>
+

@@ -1,0 +1,36 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Email to all users" %}
+{% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+	#id_subject {
+		width: 400px;
+	}
+
+	#id_message {
+		width: 400px;
+		height: 400px;
+	}
+</style>
+
+<div id="content-main">
+	<h1>{% trans "Email to all users" %}</h1>
+	<form method="POST" action="{{ action }}">
+		<div>
+			<fieldset class="module aligned">
+				<table>
+					{{ form.as_table }}
+				</table>
+			</fieldset>
+			<div class="submit-row">
+				<input class="default" type="submit" name="_save" value="{% trans "Send" %}" />
+			</div>
+		</div>
+	</form>
+</div>
+{% endblock %}

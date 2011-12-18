@@ -1,0 +1,1761 @@
+# UsablePortal
+# Copyright (C) 2009 UsableLabs
+# This file is distributed under the same license as the UsablePortal package.
+# Thawatchai Piyawat <piyawat@usablelabs.org>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: UsablePortal 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-05-31 19:17+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Thawatchai Piyawat <piyawat@usablelabs.org>\n"
+"Language-Team: UsableLabs <support@usablelabs.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin_tools/views.py:20 admin_tools/views.py:49
+msgid "Tools"
+msgstr "เครื่องมือ"
+
+#: admin_tools/views.py:21
+msgid "List"
+msgstr "รายการ"
+
+#: admin_tools/views.py:41 backend/views.py:45
+msgid "The email has been sent."
+msgstr "อีเมลได้ถูกส่งไปแล้ว"
+
+#: admin_tools/views.py:43
+msgid "ERROR!! The email could not be sent."
+msgstr "ผิดพลาด!! ไม่สามารถส่งอีเมลได้"
+
+#: admin_tools/views.py:50 backend/admin.py:38
+msgid "Email"
+msgstr "อีเมล"
+
+#: admin_tools/views.py:51
+msgid "All"
+msgstr "ทั้งหมด"
+
+#: admin_tools/templates/at_email_all.html:5
+#: admin_tools/templates/at_email_all.html:22
+msgid "Email to all users"
+msgstr "ส่งอีเมลถึงผู้ใช้ทั้งหมด"
+
+#: admin_tools/templates/at_email_all.html:31 backend/views.py:55
+msgid "Send"
+msgstr "ส่ง"
+
+#: admin_tools/templates/at_tool_list.html:4
+#: admin_tools/templates/at_tool_list.html:8
+msgid "Admin Tools"
+msgstr ""
+
+#: admin_tools/templates/at_tool_list.html:11
+msgid "Monitoring Tools"
+msgstr ""
+
+#: admin_tools/templates/at_tool_list.html:15
+msgid "Email Tools"
+msgstr ""
+
+#: admin_tools/templates/at_tool_list.html:17
+msgid "Email All Users"
+msgstr ""
+
+#: backend/admin.py:34
+msgid "Full Name"
+msgstr "ชื่อเต็ม"
+
+#: backend/lib.py:36 backend/models.py:91 backend/models.py:453
+#: templates/b/category_list.html:44 templates/b/category_list.html.py:49
+msgid "Slug"
+msgstr "สลัก"
+
+#: backend/lib.py:38
+msgid ""
+"A slug is a string representing a title in a web address (URL). Valid "
+"characters are a-z, 0-9, and dashes (-). Space is not allowed, and it cannot "
+"begin or end with a dash. (optional)"
+msgstr ""
+"สลัก (slug) เป็นคำที่แทนชื่อในที่อยู่เว็บ (URL) ตัวอักษรที่สามารถใช้ได้คือ a-z, 0-9, และขีด (-) "
+"แต่ไม่สามารถใช้ช่องว่างหรือเริ่มหรือปิดด้วยขีดได้ (รายการนี้ไม่จำเป็นต้องใส่)"
+
+#: backend/lib.py:38
+msgid ""
+"A slug is a string representing a title in a web address (URL). Valid "
+"characters are a-z, 0-9, and dashes (-). Space is not allowed, and it cannot "
+"begin or end with a dash."
+msgstr ""
+"สลัก (slug) เป็นคำที่แทนชื่อในที่อยู่เว็บ (URL) ตัวอักษรที่สามารถใช้ได้คือ a-z, 0-9, และขีด (-) "
+"แต่ไม่สามารถใช้ช่องว่างหรือเริ่มหรือปิดด้วยขีดได้"
+
+#: backend/lib.py:142
+msgid "Access Denied"
+msgstr "ไม่อนุญาตให้ใช้"
+
+#: backend/lib.py:143
+msgid "You attempt to access an unauthorized feature."
+msgstr "คุณไม่ได้รับอนุญาตให้เข้าใช้ระบบในส่วนนี้"
+
+#: backend/lib.py:148
+msgid "The action was completed successfully."
+msgstr "ดำเนินการสำเร็จเรียบร้อยแล้ว"
+
+#: backend/lib.py:151
+msgid "Email Subject"
+msgstr "ห้วเรื่องอีเมล"
+
+#: backend/lib.py:152
+msgid "Email Message"
+msgstr "เนื้อความอีเมล"
+
+#: backend/lib.py:156
+msgid "Being Edited Now"
+msgstr "กำลังแก้ไขอยู่"
+
+#: backend/lib.py:169 backend/lib.py:306 templates/b/contributor_list.html:39
+#: templates/b/contributor_list.html:47
+msgid "Username"
+msgstr "ชื่อเข้าใช้"
+
+#: backend/lib.py:170
+msgid "Password"
+msgstr "รหัสผ่าน"
+
+#: backend/lib.py:176 backend/models.py:314 backend/models.py:380
+#: templates/b/file_list.html:125 templates/b/page_list.html:31
+#: templates/b/portal_list.html:58 templates/b/portal_list.html.py:64
+#: templates/b/portal_main.html:151
+msgid "Address"
+msgstr "ที่อยู่"
+
+#: backend/lib.py:182
+#, python-format
+msgid ""
+"A portal address must start with an a-z character following by a-z, 0-9, - "
+"(dash), or . (dot) characters. It must be less than 100 characters. For "
+"example \"mgt-psu\", in which it will be accessible from \"%s\""
+msgstr ""
+"ที่อยู่ของเว็บศูนย์รวมต้องเริ่มต้นด้วยตัวอักษร a-z ตามด้วย a-z, 0-9, - (ขีด), หรือ . (จุด) "
+"โดยที่อยู่ของเว็บศูนย์รวมต้องยาวไม่เกิน 100 ตัวอักษร ตัวอย่างเช่น \"mgt-psu\" "
+"ซึ่งจะกลายเป็นที่อยู่ของเว็บที่เข้าใช้ได้ที่ \"%s\" เป็นต้น"
+
+#: backend/lib.py:183
+#, python-format
+msgid ""
+"This is a valid domain and its DNS server maps it to %s. (You may need to "
+"contact your network administrator to use this feature.)"
+msgstr ""
+"ที่อยู่นี้เป็นชื่อโดเมนและได้ตั้งค่าใน DNS ของโดเมนนี้มายัง %s แล้ว "
+"(คุณอาจจะต้องติดต่อกับผู้บริหารระบบเครือข่ายของคุณเพื่อใช้ความสามารถนี้)"
+
+#: backend/lib.py:229
+#, python-format
+msgid "This domain must set to the following IP address: %s"
+msgstr "ชื่อโดเมนนี้ต้องตั้งให้ชี้ไปยังเลขไอพีต่อไปนี้: %s"
+
+#: backend/lib.py:230
+msgid ""
+"You cannot use this feature because the domain name has not been properly "
+"set."
+msgstr "คุณยังใช้ความสามารถนี้ไม่ได้เพราะชื่อโดเมนนี้ยังตั้งค่าไม่ถูกต้อง"
+
+#: backend/lib.py:249
+msgid "Edit This Portal"
+msgstr "แก้ไขเว็บศูนย์รวมนี้"
+
+#: backend/lib.py:249 templates/b/base.html:157
+msgid "Create New Portal"
+msgstr "สร้างเว็บศูนย์รวมใหม่"
+
+#: backend/lib.py:257
+msgid ""
+"Select a page to be the first page of this portal, or select none to reset "
+"it."
+msgstr "เลือกหน้าเพจที่จะเป็นหน้าแรกของเว็บศูนย์รวมนี้ ไม่เลือกเป็นการลบการตั้งค่า"
+
+#: backend/lib.py:277 templates/b/base.html:114
+msgid "Set Home Page"
+msgstr "ตั้งหน้าแรก"
+
+#: backend/lib.py:279 templates/b/portal_main.html:163
+#: templates/b/portal_main.html.py:171 templates/b/portal_main.html:176
+#: templates/b/portal_main.html.py:181 templates/b/setlang.html:8
+msgid "Set"
+msgstr "ตั้ง"
+
+#: backend/lib.py:280
+msgid ""
+"You can set three items as the home page of a portal: an event, a news, and "
+"a page. However, all items will not be the home page in the same time. If "
+"set, the event will be chosen as the home page following by the news and the "
+"page. For example, if you want to set a news as the home page, you must not "
+"set a page."
+msgstr ""
+"คุณสามารถตั้งกิจกรรม ข่าว และหน้าเพจเป็นหน้าแรกได้ในเวลาเดียวกัน "
+"อย่างไรก็ตามทั้งสามอย่างจะไม่ถูกตั้งเป็นหน้าแรกพร้อมๆ "
+"กันแต่ระบบจะเลือกกิจกรรมมาก่อนข่าวและเลือกข่าวก่อนหน้าเพจ "
+"ดังนั้นถ้าคุณต้องการตั้งข่าวเป็นหน้าแรกคุณต้องไม่ตั้งกิจกรรมเป็นหน้าแรกไว้เป็นต้น"
+
+#: backend/lib.py:284
+#, python-format
+msgid "No %s"
+msgstr "ไม่มี%s"
+
+#: backend/lib.py:285
+msgid ""
+"This portal does not have an item in the type you want to set as its "
+"homepage. Please create a item first."
+msgstr ""
+"เว็บศูนย์รวมนี้ไม่มีรายการในประเภทที่คุณต้องการที่สามารถใช้ตั้งเป็นหน้าแรกได้ กรุณาสร้างข้อมูลนั้นก่อน"
+
+#: backend/lib.py:290
+msgid "CSS"
+msgstr ""
+
+#: backend/lib.py:291
+msgid "Left Sidebar"
+msgstr "ข้อมูลด้านซ้าย"
+
+#: backend/lib.py:292
+msgid ""
+"Check to display a sidebar on the left side. Uncheck to display it on the "
+"right side."
+msgstr "เลือกตัวเลือกนี้เพื่อแสดงข้อมูลประกอบในด้านซ้าย ไม่เลือกตัวเลือกเพื่อแสดงในด้านขวา"
+
+#: backend/lib.py:293
+msgid "Hide Header Title"
+msgstr "ไม่แสดงชื่อในหัวเว็บ"
+
+#: backend/lib.py:294
+msgid "Check above to hide the header title."
+msgstr "เลือกตัวเลือกนี้เพื่อไม่ให้ระบบแสดงชื่อเว็บในหัวเว็บศูนย์รวมนี้"
+
+#: backend/lib.py:307
+msgid ""
+"Enter the username of the person to add as a contributor of this portal. The "
+"user must have logged in to this system before."
+msgstr ""
+"ใส่ชื่อในการเข้าใช้ของบุคคลที่ต้องการเพิ่มให้เป็นผู้ร่วมเขียนของเว็บศูนย์รวมนี้ "
+"ผู้ใช้คนนั้นต้องเคยเข้าใช้ระบบนี้แล้ว"
+
+#: backend/lib.py:362 backend/templatetags/backend_extras.py:84
+msgid "Save"
+msgstr "บันทึก"
+
+#: backend/lib.py:405
+msgid "No Keyword"
+msgstr "ไม่มีคำสำคัญ"
+
+#: backend/lib.py:406
+msgid ""
+"This portal does not have keywords to tag contents of this portal. Please "
+"create some keywords first."
+msgstr "เว็บศูนย์รวมนี้ไม่มีคำสำคัญเพื่อใช้ระบุเนื้อหา กรุณาสร้างคำสำคัญก่อน"
+
+#: backend/lib.py:414
+msgid ""
+"A keyword with the title or the slug is already defined for this portal."
+msgstr "คำสำคัญที่มีชื่อนี้หรือสลักนี้ได้ตั้งไว้แล้วสำหรับเว็บศูนย์รวมนี้"
+
+#: backend/lib.py:415
+msgid ""
+"A keyword is a word that represent a concept. Keywords are used to identify "
+"the key ideas of pages, news, events, and files. For example, a school "
+"portal may have the following keywords: Teaching, Extra Curriculum Activity, "
+"Parent, etc.\n"
+"\n"
+"Keywords can also be used to distinguish relavance of information to groups "
+"of users. As an example, the following keywords may be defined for a "
+"university portal: Prospective Students, Current Students, Researchers, "
+"Staff, Visitors."
+msgstr ""
+"คำสำคัญคือคำที่แทนแนวคิดใดแนวคิดหนึ่ง คำสำคัญใช้สำหรับระบุถึงประเด็นความคิดที่สำคัญของหน้าเพจ "
+"ข่าว กิจกรรม และไฟล์ ตัวอย่างเช่นเว็บศูนย์รวมของโรงเรียนมัธยมอาจจะมีคำสำคัญต่อไปนี้: "
+"การเรียนการสอน, กิจกรรมนอกหลักสูตร, ผู้ปกครอง ฯลฯ\n"
+"\n"
+"คำสำคัญสามารถใช้ในการแยกประเภทของข้อมูลตามกลุ่มของผู้ใช้ "
+"อาทิเช่นคำสำคัญต่อไปนี้อาจจะตั้งขึ้นเพื่อเว็บศูนย์รวมของมหาวิทยาลัย: ผู้สนใจศึกษาต่อ, "
+"นักศึกษาปัจจุบัน, นักวิจัย, บุคลากร, บุคคลทั่วไป เป็นต้น"
+
+#: backend/lib.py:438
+msgid "No News Category"
+msgstr "ไม่มีประเภทข่าว"
+
+#: backend/lib.py:439
+msgid ""
+"No news category has been defined for this portal. To post a news, you need "
+"a news category. Please create a news category first."
+msgstr "เว็บศูนย์รวมนี้ยังไม่ได้สร้างประเภทข่าวทำให้ไม่สามารถเพิ่มข่าวได้ กรุณาสร้างประเภทข่าวก่อน"
+
+#: backend/lib.py:447
+msgid ""
+"A news category with the title or the slug is already defined for this "
+"portal."
+msgstr "ประเภทข่าวที่มีชื่อหรือสลักนี้ได้ตั้งไว้แล้วสำหรับเว็บศูนย์รวมนี้"
+
+#: backend/lib.py:452 backend/lib.py:533 backend/lib.py:589
+#: backend/models.py:135
+msgid "Content"
+msgstr "เนื้อหา"
+
+#: backend/lib.py:493
+msgid "Edit News"
+msgstr "แก้ไขข่าว"
+
+#: backend/lib.py:493 backend/views.py:328 templates/b/base.html:200
+#: templates/b/news_list.html:8
+msgid "Create News"
+msgstr "สร้างข่าวใหม่"
+
+#: backend/lib.py:519
+msgid "No Event Category"
+msgstr "ไม่มีประเภทกิจกรรม"
+
+#: backend/lib.py:520
+msgid ""
+"No event category has been defined for this portal. To post an event, you "
+"need an event category. Please create an event category first."
+msgstr ""
+"เว็บศูนย์รวมนี้ยังไม่ได้สร้างประเภทกิจกรรมทำให้ไม่สามารถเพิ่มกิจกรรมได้ "
+"กรุณาสร้างประเภทกิจกรรมก่อน"
+
+#: backend/lib.py:528
+msgid ""
+"An event category with the title or the slug is already defined for this "
+"portal."
+msgstr "ประเภทกิจกรรมที่มีชื่อหรือสลักนี้ได้ตั้งไว้แล้วสำหรับเว็บศูนย์รวมนี้"
+
+#: backend/lib.py:573
+msgid "The beginning time must preceed the ending time."
+msgstr "เวลาเริ่มต้นต้องเป็นเวลาก่อนเวลาสิ้นสุด"
+
+#: backend/lib.py:579
+msgid "Edit Event"
+msgstr "แก้ไขกิจกรรม"
+
+#: backend/lib.py:579 backend/views.py:422 templates/b/base.html:223
+#: templates/b/event_list.html:8
+msgid "Create Event"
+msgstr "สร้างกิจกรรมใหม่"
+
+#: backend/lib.py:633
+msgid "copy"
+msgstr "สำเนา"
+
+#: backend/lib.py:653
+msgid "A book page with this title already exists. Please choose another one."
+msgstr "หน้าเพจที่มีชื่อนี้ได้มีอยู่ในระบบแล้ว กรุณาเลือกชื่ออื่น"
+
+#: backend/lib.py:655
+msgid "This slug is already used. Please choose another one."
+msgstr "สลักนี้ได้มีการใช้แล้ว กรุณาใช้คำอื่น"
+
+#: backend/lib.py:657
+msgid "Invalid value. The new parent is a child of this page."
+msgstr "ข้อมูลไม่ถูกต้อง หน้าก่อนเป็นหนึ่งในหน้าลูกของหน้านี้"
+
+#: backend/lib.py:663
+msgid "Edit Book Page"
+msgstr "แก้ไขหน้าเพจ"
+
+#: backend/lib.py:663
+msgid "Create Book Page"
+msgstr "สร้างหน้าเพจใหม่"
+
+#: backend/lib.py:667
+msgid ""
+"A portal website is an online book that contains information of an "
+"organization, a group, or an individual. Book pages are arranged in "
+"hierarchical fashion."
+msgstr ""
+"เว็บศูนย์รวมคือสมุดออนไลน์ที่นำเสนอสารสนเทศของหน่วยงานนั้นๆ ไม่ว่าจะเป็นองค์กร กลุ่ม "
+"หรือบุคคลธรรมดา\n"
+"\n"
+"หน้าเพจในเว็บศูนย์รวมจัดเรียงเป็นลำดับหัวข้อจากใหญ่ไปเล็กโดยหัวข้อใหญ่เป็นหน้าก่อนของหัวข้อย่อยเป็นชั้นต่อเนื่องกันไป"
+
+#: backend/lib.py:709
+msgid "This file name contains disallowed character(s). Please rename it."
+msgstr "ชื่อไฟล์นี้มีตัวอักษรที่ไม่อนุญาตให้ใช้ กรุณาแก้ไขชื่อไฟล์"
+
+#: backend/lib.py:774
+msgid "Not Allowed"
+msgstr "ไม่อนุญาต"
+
+#: backend/lib.py:775
+msgid "You are not allowed to upload or update a file."
+msgstr "คุณไม่ได้รับอนุญาตที่จะเพิ่มไฟล์หรือแก้ไขไฟล์"
+
+#: backend/lib.py:799
+msgid "No Podcast Category"
+msgstr "ไม่มีประเภทพอดคาสต์"
+
+#: backend/lib.py:800
+msgid ""
+"No podcast category has been defined for this portal. To post a podcast, you "
+"need a podcast category. Please create a podcast category first."
+msgstr ""
+"เว็บศูนย์รวมนี้ยังไม่ได้สร้างประเภทพอดคาสต์ทำให้ไม่สามารถเพิ่มพอดคาสต์ได้ "
+"กรุณาสร้างประเภทพอดคาสต์ก่อน"
+
+#: backend/lib.py:808
+msgid ""
+"A podcast category with the title or the slug is already defined for this "
+"portal."
+msgstr "ประเภทพอดคาสต์ที่มีชื่อหรือสลักนี้ได้ตั้งไว้แล้วสำหรับเว็บศูนย์รวมนี้"
+
+#: backend/lib.py:854
+msgid "Edit Podcast"
+msgstr "แก้ไขพอดคาสต์"
+
+#: backend/lib.py:854 backend/views.py:713 templates/b/base.html:266
+#: templates/b/podcast_list.html:8
+msgid "Create Podcast"
+msgstr "สร้างพอดคาสต์ใหม่"
+
+#: backend/models.py:15
+msgid "Creative Commons"
+msgstr "ครีเอทีฟคอมมอนส์"
+
+#: backend/models.py:16
+msgid "Attribution Non-Commercial Share Alike"
+msgstr "สัญญาอนุญาตประเภทแสดงที่มา ไม่ใช้เพื่อการค้า และอนุญาตแบบเดียวกัน"
+
+#: backend/models.py:17
+msgid "Attribution Non-Commercial No Derivatives"
+msgstr "สัญญาอนุญาตประเภทแสดงที่มา ไม่ใช้เพื่อการค้า และไม่แก้ไขต้นฉบับ"
+
+#: backend/models.py:18
+msgid "Attribution No Derivatives"
+msgstr "สัญญาอนุญาตประเภทแสดงที่มา และไม่แก้ไขต้นฉบับ"
+
+#: backend/models.py:19
+msgid "Attribution Non-Commercial"
+msgstr "สัญญาอนุญาตประเภทแสดงที่มา และไม่ใช้เพื่อการค้า"
+
+#: backend/models.py:20
+msgid "Attribution Share Alike"
+msgstr "สัญญาอนุญาตประเภทแสดงที่มา และอนุญาตแบบเดียวกัน"
+
+#: backend/models.py:21
+msgid "Attribution"
+msgstr "สัญญาอนุญาตประเภทแสดงที่มา"
+
+#: backend/models.py:23
+msgid "Other"
+msgstr "อื่นๆ"
+
+#: backend/models.py:24 frontend/templatetags/frontend_extras.py:97
+msgid "All Rights Reserved"
+msgstr "สงวนลิขสิทธิ์ทั้งหมด"
+
+#: backend/models.py:25 frontend/templatetags/frontend_extras.py:99
+msgid "Public Domain"
+msgstr "ไม่สงวนลิขสิทธิ์"
+
+#: backend/models.py:30
+msgid "Keyword"
+msgstr "คำสำคัญ"
+
+#: backend/models.py:31 templates/b/base.html:97
+msgid "Portal"
+msgstr "เว็บศูนย์รวม"
+
+#: backend/models.py:32
+msgid "Page"
+msgstr "หน้าเพจ"
+
+#: backend/models.py:33 backend/views.py:165 templates/b/base.html:122
+#: templates/b/base.html.py:195 templates/b/news_list.html:11
+#: templates/b/portal_main.html:174 templates/f/news_category_list.html:7
+msgid "News"
+msgstr "ข่าว"
+
+#: backend/models.py:34
+msgid "News Category"
+msgstr "ประเภทข่าว"
+
+#: backend/models.py:35 backend/views.py:173 templates/b/base.html:125
+#: templates/b/portal_main.html:169
+msgid "Event"
+msgstr "กิจกรรม"
+
+#: backend/models.py:36
+msgid "Event Category"
+msgstr "ประเภทกิจกรรม"
+
+#: backend/models.py:37 backend/models.py:505 templates/b/podcast_list.html:32
+msgid "File"
+msgstr "ไฟล์"
+
+#: backend/models.py:38
+msgid "Podcast"
+msgstr "พอดคาสต์"
+
+#: backend/models.py:39
+msgid "Podcast Category"
+msgstr "ประเภทพอดคาสต์"
+
+#: backend/models.py:60 templates/b/news_list.html:33
+#: templates/b/page_list.html:165 templates/b/podcast_list.html:36
+#: templates/f/news_item_info.html:9 templates/f/page_item.html:30
+#: templates/f/page_list.html:22 templates/f/podcast_item_info.html:13
+msgid "Created"
+msgstr "สร้างเมื่อ"
+
+#: backend/models.py:61 templates/b/page_list.html:166
+#: templates/f/news_item_info.html:11 templates/f/page_item.html:32
+#: templates/f/page_list.html:24 templates/f/podcast_item_info.html:15
+msgid "Modified"
+msgstr "แก้ไขเมื่อ"
+
+#: backend/models.py:79 templates/b/page_list.html:161
+msgid "Latitude"
+msgstr "ละติจูด"
+
+#: backend/models.py:80
+msgid "Enter decimal degree of latitude, e.g., 7.008854. (optional)"
+msgstr "ใส่ค่าพิกัดละติจูดในแบบตัวเลข ตัวอย่างเช่น 7.008854 (รายการนี้ไม่จำเป็นต้องใส่)"
+
+#: backend/models.py:81 templates/b/page_list.html:162
+msgid "Longitude"
+msgstr "ลองจิจูด"
+
+#: backend/models.py:82
+msgid "Enter decimal degree of logitude, e.g., 100.5007839. (optional)"
+msgstr "ใส่ค่าพิกัดลองจิจูดในแบบตัวเลข ตัวอย่างเช่น 100.5007839 (รายการนี้ไม่จำเป็นต้องใส่)"
+
+#: backend/models.py:90 backend/models.py:134 backend/models.py:269
+#: templates/b/category_list.html:43 templates/b/category_list.html.py:48
+#: templates/b/event_list.html:27 templates/b/news_list.html:27
+#: templates/b/podcast_list.html:27 templates/b/portal_list.html:59
+#: templates/b/portal_list.html.py:65 templates/b/portal_main.html:147
+#: templates/b/portal_main.html.py:233 templates/b/portal_main.html:238
+#: templates/b/portal_main.html.py:250 templates/b/portal_main.html:252
+#: templates/b/portal_main.html.py:262 templates/b/portal_main.html:264
+#: templates/b/portal_main.html.py:286 templates/b/portal_main.html:288
+msgid "Title"
+msgstr "ชื่อ"
+
+#: backend/models.py:119 backend/views.py:288 templates/b/base.html:165
+#: templates/b/file_list.html:128 templates/b/page_list.html:164
+#: templates/b/portal_main.html:188 templates/f/event_item_info.html:7
+#: templates/f/news_item_info.html:7 templates/f/page_item.html:28
+#: templates/f/page_list.html:20 templates/f/podcast_item_info.html:7
+msgid "Keywords"
+msgstr "คำสำคัญ"
+
+#: backend/models.py:137 templates/b/event_list.html:35
+#: templates/b/news_list.html:34 templates/b/podcast_list.html:37
+msgid "Hidden"
+msgstr "ซ่อน"
+
+#: backend/models.py:138
+msgid "Check above to hide this item temporarily."
+msgstr "เลือกตัวเลือกนี้เพื่อซ่อนรายการนี้ชั่วคราว"
+
+#: backend/models.py:139 templates/b/event_list.html:36
+#: templates/b/news_list.html:35 templates/b/podcast_list.html:38
+msgid "Sticky"
+msgstr "แสดงค้าง"
+
+#: backend/models.py:140
+msgid "Check this to show this item before others."
+msgstr "เลือกตัวเลือกนี้เพื่อแสดงรายการนี้ก่อนรายการอื่นๆ"
+
+#: backend/models.py:171
+#, python-format
+msgid ""
+"This item has been locked for editing by %(name)s. The lock will be expired "
+"in %(min)s minutes."
+msgstr ""
+"%(name)s กำลังทำการแก้ไขรายการนี้อยู่ คุณจะสามารถทำการแก้ไขรายการนี้ต่อจากเขาได้ภายใน "
+"%(min)s นาที"
+
+#: backend/models.py:216
+msgid "Verified"
+msgstr "ตรวจสอบแล้ว"
+
+#: backend/models.py:217
+msgid "Allow Upload"
+msgstr "อนุญาตให้เพิ่มไฟล์"
+
+#: backend/models.py:225
+msgid "Site Title"
+msgstr "ชื่อไซต์หลัก"
+
+#: backend/models.py:226
+msgid "Enter a human-readable title of this site."
+msgstr "ใส่ชื่อของเว็บไซต์หลักที่ให้บริการนี้"
+
+#: backend/models.py:227
+msgid "Site Address"
+msgstr "ที่อยู่ไซต์หลัก"
+
+#: backend/models.py:228
+msgid "Enter the URL of this site."
+msgstr "ใส่ URL ของเว็บไซต์หลักที่ให้บริการนี้"
+
+#: backend/models.py:230
+msgid "Main Portal Address"
+msgstr "ที่อยู่ของเว็บศูนย์รวมหลักของไซต์"
+
+#: backend/models.py:231
+msgid "Enter the address of the main portal site for this system."
+msgstr "ใส่ที่อยู่ของเว็บศูนย์รวมหลักของระบบนี้"
+
+#: backend/models.py:232
+msgid "Support Email Address"
+msgstr "อีเมลผู้ดูแลระบบ"
+
+#: backend/models.py:233
+msgid "Enter the email address of the person(s) who takes care this system."
+msgstr "ใส่ที่อยู่อีเมลของผู้ดูแลระบบนี้"
+
+#: backend/models.py:235 backend/models.py:290
+msgid "Announcement"
+msgstr "ประกาศ"
+
+#: backend/models.py:236
+msgid ""
+"Enter the announcement for this system. It will display on both frontend and "
+"backend pages."
+msgstr "ใส่ข้อความประกาศสำหรับระบบ ข้อความนี้จะแสดงในทุกหน้าทั้งส่วนหน้าและส่วนหลังของระบบ"
+
+#: backend/models.py:237 backend/models.py:288
+msgid "Footer"
+msgstr "ส่วนท้าย"
+
+#: backend/models.py:238
+msgid ""
+"Enter the footer of this system. It will display on both frontend and "
+"backend pages."
+msgstr "ใส่ข้อความส่วนท้ายของระบบ ข้อความนี้จะแสดงในทุกหน้าที่ผู้ใช้เห็น ทั้งส่วนเว็บศูนย์รวมและส่วนจัดการเว็บศูนย์รวม"
+
+#: backend/models.py:240
+msgid "Site Image URL"
+msgstr ""
+
+#: backend/models.py:241
+msgid ""
+"Enter the URL for the image for displaying on the top-most headbar of the "
+"site."
+msgstr ""
+
+#: backend/models.py:242
+msgid "Backend Footer"
+msgstr "ส่วนท้ายของส่วน Backend"
+
+#: backend/models.py:243
+msgid "Enter the footer of this system for displaying on the backend pages."
+msgstr ""
+
+#: backend/models.py:245
+msgid "Login Form Title"
+msgstr "หัวเรื่องในหน้าเข้าใช้ระบบ"
+
+#: backend/models.py:246
+msgid "Enter the title on the login form."
+msgstr "ใส่ชื่อของฟอร์มในหน้าเข้าใช้ระบบ"
+
+#: backend/models.py:247
+msgid "Login Form Message"
+msgstr "ข้อความในหน้าเข้าใช้ระบบ"
+
+#: backend/models.py:248
+msgid "A message to display in the login form."
+msgstr "ข้อความที่แสดงเพื่อให้ข้อมูลผู้ใช้ในหน้าเข้าใช้ระบบ"
+
+#: backend/models.py:250
+msgid "Upload Permission Message"
+msgstr "ข้อความเกี่ยวกับการขอสิทธิ์ในการใส่ไฟล์ในเครื่องแม่ข่าย"
+
+#: backend/models.py:251
+msgid "A message to instruct users how to obtain a permission to upload files."
+msgstr "ข้อความที่แสดงเพื่อให้ข้อมูลผู้ใช้ในการขอสิทธิ์เพื่อใส่ไฟล์ในระบบ"
+
+#: backend/models.py:253
+msgid "FTP Access Message"
+msgstr ""
+
+#: backend/models.py:254
+msgid "A message to inform users how to upload large files using a FTP client."
+msgstr "ข้อความที่แสดงเพื่อให้ข้อมูลผู้ใช้ในการใช้โปรแกรม FTP เพื่อใส่ไฟล์ในระบบ FTP"
+
+#: backend/models.py:267
+msgid "Domain Address"
+msgstr "ที่อยู่โดเมน"
+
+#: backend/models.py:270
+msgid "Enter the title of this portal."
+msgstr "ใส่ชื่อของเว็บศูนย์รวมนี้"
+
+#: backend/models.py:271
+msgid "Subtitle"
+msgstr "คำโปรย"
+
+#: backend/models.py:272
+msgid "Enter the subtitle of this portal. (optional)"
+msgstr "ใส่คำโปรยของเว็บศูนย์รวมนี้ (รายการนี้ไม่จำเป็นต้องใส่)"
+
+#: backend/models.py:273
+msgid "Description"
+msgstr "คำจำกัดความ"
+
+#: backend/models.py:274
+msgid "Enter a breif description of this portal."
+msgstr "ใส่คำจำกัดความสั้นๆ ของเว็บศูนย์รวมนี้"
+
+#: backend/models.py:275
+msgid "Contact Information"
+msgstr "ข้อมูลติดต่อ"
+
+#: backend/models.py:276
+msgid "Enter the contact information for this portal."
+msgstr "ใส่ที่อยู่ที่ติดต่อได้ของผู้ดูแลเว็บศูนย์รวมนี้"
+
+#: backend/models.py:278
+msgid "Copyright Holder"
+msgstr "ชื่อเจ้าของลิขสิทธิ์"
+
+#: backend/models.py:279
+msgid ""
+"Enter name of a person or organization who holds copyright for the contents "
+"of this portal."
+msgstr "ใส่ชื่อของบุคคลหรือองค์กรที่เป็นเจ้าของลิขสิทธิ์ของข้อมูลในเว็บศูนย์รวมนี้"
+
+#: backend/models.py:280
+msgid "License"
+msgstr "สัญญาอนุญาต"
+
+#: backend/models.py:281
+msgid "Choose a license for all contents of this portal."
+msgstr "เลือกสิทธิ์ในการนำไปใช้ต่อของเนื้อหาในเว็บศูนย์รวมนี้"
+
+#: backend/models.py:283
+msgid "Language"
+msgstr "ภาษา"
+
+#: backend/models.py:284
+msgid "Set the default language for this portal. (optional)"
+msgstr "ตั้งภาษาหลักของเว็บศูนย์รวมนี้  (รายการนี้ไม่จำเป็นต้องใส่)"
+
+#: backend/models.py:286 templates/f/base2_sidebar.html:106
+msgid "Other Information"
+msgstr "ข้อมูลอื่นๆ"
+
+#: backend/models.py:287
+msgid "Enter other information as well as widgets and badges. (optional)"
+msgstr "ใส่ข้อมูลอื่นๆ อาทิเช่น widgets หรือ badges (รายการนี้ไม่จำเป็นต้องใส่)"
+
+#: backend/models.py:289
+msgid "Enter footer information of this portal. (optional)"
+msgstr "ใส่ข้อมูลส่วนท้ายของเว็บศูนย์รวมนี้ (รายการนี้ไม่จำเป็นต้องใส่)"
+
+#: backend/models.py:291
+msgid "Enter an announcement to display on the top of every pages. (optional)"
+msgstr "ใส่ข้อความประกาศที่จะแสดงในส่วนหัวของทุกหน้าในเว็บศูนย์รวมนี้ (รายการนี้ไม่จำเป็นต้องใส่)"
+
+#: backend/models.py:293
+msgid "Google Maps API Key"
+msgstr ""
+
+#: backend/models.py:294
+msgid ""
+"If you use your own domain, you need to obtain a Google Maps API Key from "
+"http://code.google.com/apis/maps/ (optional)"
+msgstr ""
+"หากคุณใช้ชื่อโดเมนของคุณเอง คุณต้องขอ Google Map API Key จาก http://code.google.com/"
+"apis/ (รายการนี้ไม่จำเป็นต้องใส่)"
+
+#: backend/models.py:296
+msgid "Custom CSS"
+msgstr "CSS เพิ่มเติม"
+
+#: backend/models.py:395 backend/models.py:422 backend/models.py:545
+#: templates/b/event_list.html:32 templates/b/news_list.html:32
+#: templates/b/podcast_list.html:35 templates/f/event_item_info.html:5
+#: templates/f/news_item_info.html:5 templates/f/podcast_item_info.html:5
+msgid "Category"
+msgstr "ประเภท"
+
+#: backend/models.py:425
+msgid "Location"
+msgstr "สถานที่"
+
+#: backend/models.py:426
+msgid "Enter the place where this event will take place."
+msgstr "ใส่สถานที่ในการจัดกิจกรรมนี้"
+
+#: backend/models.py:428
+msgid "year-month-day hour:minute (such as 2009-01-03 13:21)"
+msgstr "ปีคริสตศักราช-เดือน-วัน ชั่วโมง:นาที (ตัวอย่างเช่น 2009-01-03 13:21)"
+
+#: backend/models.py:429 templates/b/event_list.html:33
+#: templates/f/event_item_info.html:13
+msgid "Begin"
+msgstr "เริ่ม"
+
+#: backend/models.py:430 templates/b/event_list.html:34
+#: templates/f/event_item_info.html:15
+msgid "End"
+msgstr "สิ้นสุด"
+
+#: backend/models.py:449 templates/b/portal_main.html:234
+#: templates/b/portal_main.html.py:239
+msgid "Parent"
+msgstr "หน้าก่อน"
+
+#: backend/models.py:450
+msgid ""
+"Choose a book page that this book page belongs to. Leave it blank for a root "
+"book page."
+msgstr "เลือกหน้าเพจที่หน้านี้เป็นหน้าลูก ถ้าไม่เลือกหน้านี้จะเป็นหน้าหลัก"
+
+#: backend/models.py:454 templates/b/page_list.html:163
+msgid "Weight"
+msgstr "น้ำหนัก"
+
+#: backend/models.py:456
+msgid ""
+"Specify weight for sort order. A book page with lesser weight shows above a "
+"heavier one."
+msgstr ""
+"ระบุน้ำหนักเพื่อการจัดเรียงหน้าเพจ โดยหน้าเพจที่มีน้ำหนักน้อยกว่าจะแสดงก่อนหน้าที่มีน้ำหนักมากกว่า"
+
+#: backend/models.py:457
+msgid "Children List"
+msgstr "รายการหน้าลูก"
+
+#: backend/models.py:458
+msgid "Show a list of its children if any in the bottom of its content."
+msgstr "แสดงรายการหน้าลูก (ถ้ามี) ในด้านท้ายของเนื้อหา"
+
+#: backend/models.py:506
+msgid ""
+"Allowed characters for a file name are A-Z, a-z, 0-9, _ (underscore), and - "
+"(dash)."
+msgstr "ตัวอักษรที่อนุญาตให้ใช้ในชื่อไฟล์ได้แก่ A-Z, a-z, 0-9, _ (ขีดล่าง), และ - (ขีด)"
+
+#: backend/models.py:507 templates/b/contributor_list.html:40
+#: templates/b/contributor_list.html:48 templates/b/file_list.html:124
+msgid "Name"
+msgstr "ชื่อ"
+
+#: backend/models.py:508
+msgid "Content-Type"
+msgstr "ประเภทไฟล์สื่อ"
+
+#: backend/models.py:548
+msgid "Media URL"
+msgstr "URL ของไฟล์สื่อ"
+
+#: backend/models.py:549
+msgid "Enter the full URL of the media file."
+msgstr "ใส่ URL เต็มของไฟล์สื่อ"
+
+#: backend/models.py:550
+msgid "Media Length"
+msgstr "ความยาวของไฟล์สื่อ"
+
+#: backend/models.py:551
+msgid "Enter the length (in bytes) of the media file."
+msgstr "ใส่ความยาว (เป็นไบต์) ของไฟล์สื่อ"
+
+#: backend/models.py:552 templates/b/podcast_list.html:34
+msgid "Media Type"
+msgstr "ประเภทไฟล์สื่อ"
+
+#: backend/views.py:26
+msgid "Under Development"
+msgstr "กำลังพัฒนาอยู่"
+
+#: backend/views.py:27
+msgid ""
+"This feature is currently under development. Please wait for the next "
+"release."
+msgstr "ความสามารถของระบบในส่วนนี้กำลังพัฒนาอยู่ กรุณารอการเปิดใช้งานในรอบต่อไป"
+
+#: backend/views.py:48
+msgid "Cannot send the email. Please check the form balow."
+msgstr "ไม่สามารถส่งอีเมลได้ กรุณาตรวจสอบแบบฟอร์มด้านล่างนี้"
+
+#: backend/views.py:52 templates/b/base.html:323
+msgid "Contact Support Team"
+msgstr "ติดต่อผู้ดูแลระบบ"
+
+#: backend/views.py:87
+msgid "The username and password did not match. Please try again."
+msgstr "ชื่อเข้าใช้กับรหัสผ่านไม่ตรงกัน กรุณาใส่อีกครั้งหนึ่ง"
+
+#: backend/views.py:135 backend/views.py:553
+msgid "Unable to Delete"
+msgstr "ไม่สามารถลบได้"
+
+#: backend/views.py:136
+#, python-format
+msgid ""
+"This portal (%(title)s) cannot be deleted. It contains %(count)s items of "
+"pages, news, events, and files. You may delete them first."
+msgstr ""
+"เว็บศูนย์รวมนี้ (%(title)s) ไม่สามารถลบได้เพราะมีข้อมูลที่เป็น หน้าเพจ ข่าว กิจกรรม และไฟล์ "
+"รวมจำนวน %(count)s ชิ้น กรุณาข้อมูลเหล่านั้นก่อน"
+
+#: backend/views.py:148
+msgid "Are you sure you want to delete this portal?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบเว็บศูนย์รวมนี้?"
+
+#: backend/views.py:157 templates/b/base.html:119
+#: templates/b/portal_main.html:179
+msgid "Book Page"
+msgstr "หน้าเพจ"
+
+#: backend/views.py:158
+msgid ""
+"Select a book page to be the first page of this portal, or select none to "
+"reset it."
+msgstr "เลือกหน้าเพจที่จะเป็นหน้าแรกของเว็บศูนย์รวมนี้ ไม่เลือกเป็นการลบการตั้งค่า"
+
+#: backend/views.py:166
+msgid ""
+"Select a news item to be the first page of this portal, or select none to "
+"reset it."
+msgstr "เลือกข่าวที่จะเป็นหน้าแรกของเว็บศูนย์รวมนี้ ไม่เลือกเพื่อ"
+
+#: backend/views.py:174
+msgid ""
+"Select an event to be the first page of this portal, or select none to reset "
+"it."
+msgstr "เลือกกิจกรรมที่จะเป็นหน้าแรกของเว็บศูนย์รวมนี้  ไม่เลือกเป็นการลบการตั้งค่า"
+
+#: backend/views.py:199
+msgid "Set Custom CSS"
+msgstr "ตั้งค่า CSS เพิ่มเติม"
+
+#: backend/views.py:224 backend/views.py:272
+msgid "Do you want to add this person as a contributor of this portal?"
+msgstr "คุณต้องการเพิ่มผู้ใช้คนนี้เป็นผู้ร่วมเขียนสำหรับเว็บศูนย์รวมนี้ใช่ไหม?"
+
+#: backend/views.py:226 templates/b/contributor_list.html:9
+#: templates/b/portal_main.html:220
+msgid "Add"
+msgstr "เพิ่ม"
+
+#: backend/views.py:230
+msgid "The user is the owner of this portal."
+msgstr "ผู้ใช้คนนี้เป็นเจ้าของเว็บศูนย์รวมนี้"
+
+#: backend/views.py:232
+msgid "The user has already been a contributor of this portal."
+msgstr "ผู้ใช้คนนี้เป็นผู้ร่วมเขียนของเว็บศูนย์รวมนี้อยู่แล้ว"
+
+#: backend/views.py:234
+msgid "Cannot find a person with the username."
+msgstr "ไม่สามารถค้นหาผู้ใช้ที่ใช้ชื่อเข้าใช้นี้ได้"
+
+#: backend/views.py:236 templates/b/base.html:138
+msgid "Add Contributor"
+msgstr "เพิ่มผู้ร่วมเขียน"
+
+#: backend/views.py:238
+msgid "Next"
+msgstr "ถัดไป"
+
+#: backend/views.py:239
+msgid ""
+"A contributor is a person that can do anything the owner of a portal can. "
+"This suits a site with a small editorial team."
+msgstr ""
+"ผู้ร่วมเขียนข้อมูลคือบุคคลที่สามารถเขียนข้อมูลต่างๆ ได้เหมือนกับเข้าของเว็บศูนย์รวม "
+"ความสามารถนี้เพิ่มความสะดวกให้กับเว็บศูนย์รวมที่มีทีมบรรณาธิการขนาดจำนวนไม่มาก"
+
+#: backend/views.py:273
+msgid "Are you sure you want to remove this person from the contributor list?"
+msgstr "คุณแน่ใจหรือเปล่าว่าคุณต้องการยกเลิกการเป็นผู้ร่วมเขียนในเว็บศูนย์รวมนี้ของผู้ใช้คนนี้?"
+
+#: backend/views.py:278
+msgid "Unknown User or User Not Contributor"
+msgstr "ไม่มีผู้ใช้คนนี้หรือผู้ใช้ไม่ได้เป็นผู้ร่วมเขียน"
+
+#: backend/views.py:279
+msgid ""
+"Either cannot find a user by the username, or the user is not a contributor "
+"of this portal."
+msgstr ""
+"ไม่สามารถค้นหาผู้ใช้โดยชื่อเข้าใช้นี้ได้ หรือมิฉะนั้นผู้ใช้คนนี้ก็ไม่ได้เป็นผู้ร่วมเขียนของเว็บศูนย์รวมนี้"
+
+#: backend/views.py:291
+msgid ""
+"This portal does not have a keyword. Click 'Create' to define a new keyword."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีคำสำคัญ คลิก 'สร้าง' เพื่อเพิ่มคำสำคัญ"
+
+#: backend/views.py:297
+msgid "Create New Keyword"
+msgstr "สร้างคำสำคัญใหม่"
+
+#: backend/views.py:308
+msgid "Edit This Keyword"
+msgstr "แก้ไขคำสำคัญนี้"
+
+#: backend/views.py:323 templates/b/portal_main.html:195
+msgid "News Categories"
+msgstr "ประเภทข่าว"
+
+#: backend/views.py:326
+msgid ""
+"This portal does not have a news category. Click 'Create' to define a news "
+"category."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีประเภทข่าว คลิก 'สร้าง' เพื่อสร้างประเภทข่าวใหม่"
+
+#: backend/views.py:336
+msgid "Create a News Category"
+msgstr "สร้างประเภทข่าวใหม่"
+
+#: backend/views.py:347
+msgid "Edit This News Category"
+msgstr "แก้ไขประเภทข่าวนี้"
+
+#: backend/views.py:376 backend/views.py:377 backend/views.py:471
+#: backend/views.py:472 backend/views.py:757 backend/views.py:758
+#: backend/templatetags/backend_extras.py:96 templates/b/confirm_form.html:13
+msgid "Yes"
+msgstr "ใช่"
+
+#: backend/views.py:376 backend/views.py:377 backend/views.py:471
+#: backend/views.py:472 backend/views.py:757 backend/views.py:758
+#: backend/templatetags/backend_extras.py:96 templates/b/confirm_form.html:14
+msgid "No"
+msgstr "ไม่ใช่"
+
+#: backend/views.py:409
+msgid "Are you sure you want to delete this news?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบข่าวนี้?"
+
+#: backend/views.py:417 templates/b/portal_main.html:202
+msgid "Event Categories"
+msgstr "ประเภทกิจกรรม"
+
+#: backend/views.py:420
+msgid ""
+"This portal does not have an event category. Click 'Create' to define an "
+"event category."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีประเภทกิจกรรม คลิก 'สร้าง' เพื่อสร้างประเภทกิจกรรมใหม่"
+
+#: backend/views.py:430
+msgid "Create an Event Category"
+msgstr "สร้างประเภทกิจกรรมใหม่"
+
+#: backend/views.py:441
+msgid "Edit This Event Category"
+msgstr "แก้ไขประเภทกิจกรรมนี้"
+
+#: backend/views.py:504
+msgid "Are you sure you want to delete this event?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบกิจกรรมนี้"
+
+#: backend/views.py:554
+#, python-format
+msgid ""
+"This book page (%(title)s) cannot be deleted. It has %(count)s children. You "
+"may delete them first."
+msgstr ""
+"หน้าเพจนี้ (%(title)s) ไม่สามารถลบได้เพราะมีหน้าลูกจำนวน %(count)s กรุณาลบหน้าลูกก่อน"
+
+#: backend/views.py:566
+msgid "Are you sure you want to delete this book page?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบหน้าเพจนี้?"
+
+#: backend/views.py:578 templates/b/base.html:246
+msgid "FTP Access"
+msgstr "วิธีการใช้ระบบ FTP"
+
+#: backend/views.py:579
+msgid ""
+"This system does not provide FTP access, or the administrator does not give "
+"an instruction how to access the system."
+msgstr "ระบบนี้ไม่ได้มีบริการ FTP หรือผู้ดูแลระบบไม่ได้ให้ข้อมูลในการเข้าใช้ระบบ FTP"
+
+#: backend/views.py:633
+msgid "You have uploaded a file with this name."
+msgstr "คุณได้นำไฟล์ในชื่อนี้เข้าในระบบ"
+
+#: backend/views.py:634
+msgid "You may rename this new file or edit the old file."
+msgstr "คุณอาจแก้ไขชื่อไฟล์ใหม่ที่จะนำเข้าในระบบ หรือแก้ไขไฟล์เก่าที่มีอยู่ในระบบแล้ว"
+
+#: backend/views.py:635
+msgid "Click this link to edit the old file"
+msgstr "คลิกลิงก์นี้เพื่อแก้ไขไฟล์เก่าที่อยู่ในระบบแล้ว"
+
+#: backend/views.py:639
+msgid ""
+"A file with this name already exists in the destination directory. It was "
+"uploaded directly."
+msgstr "ไฟล์นี้ได้มีอยู่ในไดเรกตอรีนี้โดยได้ถูกนำเข้าไปในระบบโดยตรง"
+
+#: backend/views.py:644 templates/b/base.html:251
+msgid "Upload File"
+msgstr "เพิ่มไฟล์"
+
+#: backend/views.py:646 templates/b/file_list.html:10
+#: templates/b/portal_main.html:101
+msgid "Upload"
+msgstr "เพิ่มไฟล์"
+
+#: backend/views.py:677
+msgid "The uploaded file does not have the same name as the original file."
+msgstr "ไฟล์ที่เพิ่มเข้ามาเพื่อแก้ไขมีชื่อไฟล์ต่างกับชื่อไฟล์เก่า"
+
+#: backend/views.py:678
+msgid "Please rename it to the following name"
+msgstr "กรุณาเปลี่ยนชื่อไฟล์ให้เป็นดังต่อไปนี้"
+
+#: backend/views.py:683
+msgid "Update File"
+msgstr "แก้ไขไฟล์"
+
+#: backend/views.py:685 templates/b/file_list.html:133
+msgid "Update"
+msgstr "แก้ไข"
+
+#: backend/views.py:700
+msgid "Are you sure you want to delete this file?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบไฟล์นี้?"
+
+#: backend/views.py:708 templates/b/portal_main.html:209
+msgid "Podcast Categories"
+msgstr "ประเภทพอดคาสต์"
+
+#: backend/views.py:711
+msgid ""
+"This portal does not have a podcast category. Click 'Create' to define a "
+"podcast category."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีประเภทพอดคาสต์ คลิก 'สร้าง' เพื่อสร้างประเภทพอดคาสต์ใหม่"
+
+#: backend/views.py:721
+msgid "Create a Podcast Category"
+msgstr "สร้างประเภทพอดคาสต์ใหม่"
+
+#: backend/views.py:732
+msgid "Edit This Podcast Category"
+msgstr "แก้ไขประเภทพอดคาสต์นี้"
+
+#: backend/views.py:790
+msgid "Are you sure you want to delete this podcast episode?"
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบพอดคาสต์นี้?"
+
+#: backend/templatetags/backend_extras.py:80
+#: templates/b/contributor_list.html:29
+msgid ""
+"This portal does not have a contributor. Click 'Add' to add a contributor."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีผู้ร่วมเขียน คลิก 'เพิ่ม' เพื่อเพิ่มผู้ร่วมเขียน"
+
+#: backend/templatetags/backend_extras.py:92
+msgid "True"
+msgstr "ใช่"
+
+#: backend/templatetags/backend_extras.py:92
+msgid "False"
+msgstr "ไม่ใช่"
+
+#: captcha/fields.py:46
+msgid "Play captcha as audio file"
+msgstr ""
+
+#: captcha/fields.py:62 captcha/fields.py:80 captcha/tests/__init__.py:67
+msgid "Invalid CAPTCHA"
+msgstr ""
+
+#: captcha/tests/__init__.py:94
+msgid "This field is required."
+msgstr ""
+
+#: frontend/views.py:20
+msgid "The requested page is not found. Please check the address."
+msgstr "ไม่พบหน้าที่ต้องการ กรุณาตรวจสอบที่อยู่ของหน้า"
+
+#: frontend/views.py:25
+msgid "The system runs into a problem. It will be fixed as soon as possible."
+msgstr "ระบบพบปัญหาทางเทคนิค ในขณะนี้กำลังทำการแก้ไข"
+
+#: frontend/views.py:34
+msgid ""
+"Please set a main portal site address in \"System information\" using the "
+"admin interface."
+msgstr ""
+"กรุณาตั้งเว็บศูนย์รวมเว็บแรกของไซต์นี้ในหน้า \"System information\" ในส่วนการบริหารระบบ"
+
+#: frontend/templatetags/frontend_extras.py:101
+msgid "Creative Commons Attribution Non-Commercial Share Alike License"
+msgstr "ครีเอทีฟคอมมอนส์ สัญญาอนุญาตประเภทแสดงที่มา ไม่ใช้เพื่อการค้า และอนุญาตแบบเดียวกัน"
+
+#: frontend/templatetags/frontend_extras.py:103
+msgid "Creative Commons Attribution Non-Commercial No Derivatives License"
+msgstr "ครีเอทีฟคอมมอนส์ สัญญาอนุญาตประเภทแสดงที่มา ไม่ใช้เพื่อการค้า และไม่แก้ไขต้นฉบับ"
+
+#: frontend/templatetags/frontend_extras.py:105
+msgid "Creative Commons Attribution No Derivatives License"
+msgstr "ครีเอทีฟคอมมอนส์ สัญญาอนุญาตประเภทแสดงที่มา และไม่แก้ไขต้นฉบับ"
+
+#: frontend/templatetags/frontend_extras.py:107
+msgid "Creative Commons Attribution Non-Commercial License"
+msgstr "ครีเอทีฟคอมมอนส์ สัญญาอนุญาตประเภทแสดงที่มา และไม่ใช้เพื่อการค้า"
+
+#: frontend/templatetags/frontend_extras.py:109
+msgid "Creative Commons Attribution Share Alike License"
+msgstr "ครีเอทีฟคอมมอนส์ สัญญาอนุญาตประเภทแสดงที่มา และอนุญาตแบบเดียวกัน"
+
+#: frontend/templatetags/frontend_extras.py:111
+msgid "Creative Commons Attribution License"
+msgstr "ครีเอทีฟคอมมอนส์ สัญญาอนุญาตประเภทแสดงที่มา"
+
+#: templates/b/base.html:56
+msgid "Cannot connect to the server. Please click Refresh and try again."
+msgstr "ไม่สามารถต่อเชื่อมกับเครื่องแม่ข่ายได้ คลิกรีเฟรชเพื่อทดลองใหม่"
+
+#: templates/b/base.html:57
+msgid ""
+"The server did not return data. You might have logged out from the system. "
+"Please login again."
+msgstr "เครื่องแม่ข่ายไม่ส่งข้อมูลกลับ คุณอาจออกจากระบบไปแล้ว กรุณาเข้าใช้ระบบอีกครั้ง"
+
+#: templates/b/base.html:83
+msgid "Logout"
+msgstr "ออกจากระบบ"
+
+#: templates/b/base.html:85 templates/b/login.html:18
+#: templates/b/login.html.py:30 templates/f/base.html:85
+msgid "Login"
+msgstr "เข้าระบบ"
+
+#: templates/b/base.html:103
+msgid "Portal Dashboard"
+msgstr "แผงรายการจัดการเว็บ"
+
+#: templates/b/base.html:106
+msgid "View Portal"
+msgstr "ดูเว็บศูนย์รวมนี้"
+
+#: templates/b/base.html:111
+msgid "Edit Portal Information"
+msgstr "แก้ไขข้อมูลของเว็บ"
+
+#: templates/b/base.html:132
+msgid "Set Theme"
+msgstr "ตกแต่งเว็บ"
+
+#: templates/b/base.html:141
+msgid "Manage Contributors"
+msgstr "จัดการรายการผู้ร่วมเขียน"
+
+#: templates/b/base.html:147 templates/b/contributor_list.html:13
+#: templates/b/portal_main.html:217
+msgid "Contributors"
+msgstr "ผู้ร่วมเขียน"
+
+#: templates/b/base.html:154
+msgid "List All Portals"
+msgstr "แสดงเว็บศูนย์รวมทั้งหมด"
+
+#: templates/b/base.html:170
+msgid "Create Keyword"
+msgstr "สร้างคำสำคัญใหม่"
+
+#: templates/b/base.html:173
+msgid "Manage Keywords"
+msgstr "จัดการคำสำคัญ"
+
+#: templates/b/base.html:180 templates/b/page_list.html:15
+msgid "Book Pages"
+msgstr "หน้าเพจ"
+
+#: templates/b/base.html:185 templates/b/page_list.html:11
+msgid "Create Page"
+msgstr "สร้างหน้าเพจใหม่"
+
+#: templates/b/base.html:188
+msgid "Manage Book Pages"
+msgstr "จัดการหน้าเพจ"
+
+#: templates/b/base.html:203
+msgid "Manage News"
+msgstr "จัดการข่าว"
+
+#: templates/b/base.html:208
+msgid "Create News Category"
+msgstr "สร้างประเภทข่าว"
+
+#: templates/b/base.html:211
+msgid "Manage News Categories"
+msgstr "จัดการประเภทข่าว"
+
+#: templates/b/base.html:218 templates/b/event_list.html:11
+#: templates/f/event_category_list.html:7
+msgid "Events"
+msgstr "กิจกรรม"
+
+#: templates/b/base.html:226
+msgid "Manage Events"
+msgstr "จัดการกิจกรรม"
+
+#: templates/b/base.html:231
+msgid "Create Event Category"
+msgstr "สร้างประเภทกิจกรรมใหม่"
+
+#: templates/b/base.html:234
+msgid "Manage Event Categories"
+msgstr "จัดการประเภทกิจกรรม"
+
+#: templates/b/base.html:241 templates/b/file_list.html:14
+msgid "Files"
+msgstr "ไฟล์"
+
+#: templates/b/base.html:254
+msgid "Manage Files"
+msgstr "จัดการไฟล์"
+
+#: templates/b/base.html:261 templates/b/podcast_list.html:11
+#: templates/f/podcast_category_list.html:7
+msgid "Podcasts"
+msgstr "พอดคาสต์"
+
+#: templates/b/base.html:269
+msgid "Manage Podcasts"
+msgstr "จัดการพอดคาสต์"
+
+#: templates/b/base.html:274
+msgid "Create Podcast Category"
+msgstr "สร้างประเภทพอดคาสต์"
+
+#: templates/b/base.html:277
+msgid "Manage Podcast Categories"
+msgstr "จัดการประเภทพอดคาสต์"
+
+#: templates/b/base.html:323
+msgid "Need Help?"
+msgstr "ต้องการความช่วยเหลือ?"
+
+#: templates/b/base.html:333
+msgid "powered by"
+msgstr "ทำงานโดยซอฟต์แวร์"
+
+#: templates/b/base.html:333
+msgid "from"
+msgstr "จาก"
+
+#: templates/b/base.html:333
+msgid "Prince of Songkla University"
+msgstr "มหาวิทยาลัยสงขลานครินทร์"
+
+#: templates/b/base.html:334
+msgid "by courtesy of"
+msgstr "สนับสนุนโดย"
+
+#: templates/b/base.html:334
+msgid "ThaiHealth"
+msgstr "สสส."
+
+#: templates/b/base.html:334
+msgid "TRF"
+msgstr "สกว."
+
+#: templates/b/base.html:334
+msgid "KMI"
+msgstr "สคส."
+
+#: templates/b/category_list.html:11 templates/b/portal_main.html:30
+#: templates/b/portal_main.html.py:52 templates/b/portal_main.html:76
+#: templates/b/portal_main.html.py:125 templates/b/portal_main.html:190
+#: templates/b/portal_main.html.py:197 templates/b/portal_main.html:204
+#: templates/b/portal_main.html.py:211
+msgid "Create"
+msgstr "สร้าง"
+
+#: templates/b/common_form.html:11 templates/b/event_list.html:39
+#: templates/b/event_list.html.py:41 templates/b/news_list.html:38
+#: templates/b/news_list.html.py:40 templates/b/page_list.html:152
+#: templates/b/podcast_list.html:41 templates/b/podcast_list.html.py:43
+#: templates/b/portal_list.html:20 templates/b/portal_list.html.py:41
+#: templates/b/portal_main.html:140
+msgid "View"
+msgstr "แสดงตัวอย่าง"
+
+#: templates/b/common_form.html:18 templates/b/file_list.html:135
+msgid "Delete"
+msgstr "ลบ"
+
+#: templates/b/common_form.html:61
+msgid "Save &amp; Continue Editing"
+msgstr "บันทึก &amp; แก้ไขต่อ"
+
+#: templates/b/common_form.html:95
+msgid "Help"
+msgstr "ช่วยเหลือ"
+
+#: templates/b/contributor_list.html:22
+msgid "remove"
+msgstr "เอาออก"
+
+#: templates/b/contributor_list.html:42 templates/b/contributor_list.html:50
+#: templates/b/portal_list.html:60 templates/b/portal_list.html.py:66
+msgid "Actions"
+msgstr "ดำเนินการ"
+
+#: templates/b/event_list.html:16 templates/b/portal_main.html:72
+msgid "This portal does not have an event. Click 'Create Event' to write one."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีกิจกรรม คลิก 'สร้างกิจกรรมใหม่' เพื่อทำการสร้างกิจกรรม"
+
+#: templates/b/file_list.html:11 templates/b/page_list.html:12
+msgid "Refresh"
+msgstr "รีเฟรช"
+
+#: templates/b/file_list.html:19 templates/b/portal_main.html:97
+msgid ""
+"This portal does not have a file. Click 'Upload' to put a file to the server."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีไฟล์ คลิก 'เพิ่มไฟล์' เพื่อใส่ไฟล์ใหม่ไปที่เครื่องแม่ข่าย"
+
+#: templates/b/file_list.html:122
+msgid "File Information"
+msgstr "ข้อมูลของไฟล์"
+
+#: templates/b/file_list.html:127
+msgid "Size"
+msgstr "ขนาด"
+
+#: templates/b/file_list.html:127
+msgid "bytes"
+msgstr "ไบต์"
+
+#: templates/b/file_list.html:131
+msgid "Preview"
+msgstr "ดูตัวอย่าง"
+
+#: templates/b/file_list.html:141
+msgid ""
+"This file was uploaded directly to this folder. It cannot be modified using "
+"this dashboard."
+msgstr "ไฟล์นี้ถูกเพิ่มโดยตรงไปที่เครื่องแม่ข่ายดังนั้นจึงไม่สามารถแก้ไขได้จากระบบนี้"
+
+#: templates/b/list_pagination.html:6 templates/f/pagination.html:9
+msgid "first"
+msgstr "แรกสุด"
+
+#: templates/b/list_pagination.html:11 templates/f/pagination.html:12
+msgid "previous"
+msgstr "ก่อนหน้า"
+
+#: templates/b/list_pagination.html:19 templates/f/pagination.html:15
+msgid "next"
+msgstr "ถัดไป"
+
+#: templates/b/list_pagination.html:24 templates/f/pagination.html:18
+msgid "last"
+msgstr "ท้ายสุด"
+
+#: templates/b/msg_box.html:10 templates/f/msg_box.html:19
+msgid "OK"
+msgstr "ตกลง"
+
+#: templates/b/news_list.html:16 templates/b/portal_main.html:48
+msgid ""
+"This portal does not have a news item. Click 'Create News' to write one."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีข่าว คลิก 'สร้างข่าวใหม่' เพื่อทำการสร้างข่าว"
+
+#: templates/b/page_list.html:20 templates/b/portal_main.html:26
+msgid ""
+"This portal does not have a book page. Click 'Create Page' to write one."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีหน้าเพจ คลิก 'สร้างหน้าเพจใหม่' เพื่อทำการสร้างหน้าเพจ"
+
+#: templates/b/page_list.html:148 templates/b/portal_main.html:139
+msgid "Edit"
+msgstr "แก้ไข"
+
+#: templates/b/page_list.html:150
+msgid "Copy"
+msgstr "สำเนา"
+
+#: templates/b/podcast_list.html:16 templates/b/portal_main.html:121
+msgid ""
+"This portal does not have a podcast episode. Click 'Create Podcast' to post "
+"one."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีพอดคาสต์ คลิก 'สร้างพอดคาสต์' เพื่อทำการสร้างพอดคาสต์"
+
+#: templates/b/podcast_list.html:33 templates/f/podcast_item_info.html:11
+msgid "Length"
+msgstr "ความยาวไฟล์"
+
+#: templates/b/portal_list.html:8
+msgid "Create Portal"
+msgstr "สร้างเว็บศูนย์รวมใหม่"
+
+#: templates/b/portal_list.html:11
+msgid "My Portals"
+msgstr "เว็บศูนย์รวมของผู้ใช้"
+
+#: templates/b/portal_list.html:22 templates/b/portal_list.html.py:43
+#: templates/b/portal_main.html:31 templates/b/portal_main.html.py:53
+#: templates/b/portal_main.html:77 templates/b/portal_main.html.py:102
+#: templates/b/portal_main.html:126 templates/b/portal_main.html.py:191
+#: templates/b/portal_main.html:198 templates/b/portal_main.html.py:205
+#: templates/b/portal_main.html:212 templates/b/portal_main.html.py:221
+msgid "Manage"
+msgstr "จัดการ"
+
+#: templates/b/portal_list.html:29
+msgid "This user does not have a portal."
+msgstr "ผู้ใช้คนนี้ยังไม่มีเว็บศูนย์รวม"
+
+#: templates/b/portal_list.html:32
+msgid "Contributed Portals"
+msgstr "เว็บศูนย์รวมที่ผู้ใช้ร่วมเขียนข้อมูล"
+
+#: templates/b/portal_list.html:50
+msgid ""
+"This user does not have a portal that he/she collaborates as a contributor."
+msgstr "ผู้ใช้คนนี้ยังไม่มีเว็บศูนย์รวมที่เขาร่วมเขียนข้อมูล"
+
+#: templates/b/portal_main.html:7
+msgid "Recently Modified Book Pages"
+msgstr "หน้าเพจที่แก้ไขล่าสุด"
+
+#: templates/b/portal_main.html:36 templates/f/base2_sidebar.html:34
+msgid "Recent News"
+msgstr "ข่าวล่าสุด"
+
+#: templates/b/portal_main.html:60
+msgid "Recent Events"
+msgstr "กิจกรรมล่าสุด"
+
+#: templates/b/portal_main.html:85
+msgid "Recently Modified Files"
+msgstr "ไฟล์ที่แก้ไขล่าสุด"
+
+#: templates/b/portal_main.html:109 templates/f/base2_sidebar.html:72
+msgid "Recent Podcasts"
+msgstr "พอดคาสต์ล่าสุด"
+
+#: templates/b/portal_main.html:136 templates/f/base2_sidebar.html:91
+msgid "Portal Information"
+msgstr "เกี่ยวกับเว็บศูนย์รวมนี้"
+
+#: templates/b/portal_main.html:155
+msgid "Theme"
+msgstr "ตกแต่งเว็บ"
+
+#: templates/b/portal_main.html:158
+msgid "Customized"
+msgstr "มีการปรับ"
+
+#: templates/b/portal_main.html:166
+msgid "Home Page (from high to low priority)"
+msgstr "หน้าแรก (จากความสำคัญมากไปน้อย)"
+
+#: templates/b/portal_main.html:185
+msgid "Keywords and Categories"
+msgstr "คำสำคัญและประเภทของข้อมูล"
+
+#: templates/b/portal_main.html:274 templates/b/portal_main.html.py:276
+msgid "File Name"
+msgstr "ชื่อไฟล์"
+
+#: templates/f/base.html:87
+msgid "Portal List"
+msgstr "รายการเว็บ"
+
+#: templates/f/base.html:89
+msgid "Random Portal"
+msgstr "สุ่มเว็บ"
+
+#: templates/f/base.html:152
+msgid "Copyright"
+msgstr "สงวนลิขสิทธิ์"
+
+#: templates/f/base.html:154
+msgid "Contents licensed under"
+msgstr "เนื้อหาอนุญาตให้ใช้แบบ"
+
+#: templates/f/base2.html:32
+msgid "No Homepage"
+msgstr "ไม่มีหน้าแรก"
+
+#: templates/f/base2.html:33
+msgid "Please set a homepage for this portal."
+msgstr "กรุณาตั้งหน้าแรกของเว็บศูนย์รวมนี้"
+
+#: templates/f/base2.html:56
+msgid "This portal does not have a book page."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีหน้าเพจ"
+
+#: templates/f/base2_sidebar.html:8
+msgid "Table of Contents"
+msgstr "สารบัญ"
+
+#: templates/f/base2_sidebar.html:21
+msgid "Recommended Book Pages"
+msgstr "หน้าเพจแนะนำ"
+
+#: templates/f/base2_sidebar.html:44
+msgid "all news"
+msgstr "ข่าวทั้งหมด"
+
+#: templates/f/base2_sidebar.html:46
+msgid "No recent news."
+msgstr "ไม่มีข่าวล่าสุด"
+
+#: templates/f/base2_sidebar.html:53
+msgid "Upcoming Events"
+msgstr "กิจกรรมที่กำลังจะเกิดขึ้น"
+
+#: templates/f/base2_sidebar.html:62
+msgid "No upcoming events."
+msgstr "ไม่มีกิจกรรมที่กำลังจะเกิดขึ้น"
+
+#: templates/f/base2_sidebar.html:65
+msgid "all events"
+msgstr "กิจกรรมทั้งหมด"
+
+#: templates/f/base2_sidebar.html:82
+msgid "all podcasts"
+msgstr "พอดคาสต์ทั้งหมด"
+
+#: templates/f/base2_sidebar.html:84
+msgid "No recent podcasts."
+msgstr "ไม่มีพอดคาสต์ล่าสุด"
+
+#: templates/f/base2_sidebar.html:98
+msgid "Contact"
+msgstr "ติดต่อ"
+
+#: templates/f/event_category_list.html:16 templates/f/event_list.html:16
+msgid "This portal does not have any events, or all events are marked sticky."
+msgstr "ไม่มีกิจกรรมในเว็บศูนย์รวมนี้ หรือกิจกรรมทั้งหมดถูกตั้งให้แสดงค้าง"
+
+#: templates/f/event_category_list.html:28
+msgid "No events."
+msgstr "ไม่มีกิจกรรมล่าสุด"
+
+#: templates/f/event_category_list.html:32
+#: templates/f/news_category_list.html:32
+#: templates/f/podcast_category_list.html:32
+msgid "more"
+msgstr "มีต่อ"
+
+#: templates/f/event_item_info.html:10
+msgid "Upcoming"
+msgstr "จะเกิดขึ้นใน"
+
+#: templates/f/event_list.html:24
+msgid "No events in this category."
+msgstr "ไม่มีกิจกรรมในประเภทนี้"
+
+#: templates/f/msg_box.html:5
+msgid "Page Not Found"
+msgstr "ไม่พบหน้าดังกล่าว"
+
+#: templates/f/msg_box.html:21
+msgid "Back"
+msgstr "กลับ"
+
+#: templates/f/news_category_list.html:16 templates/f/news_list.html:16
+msgid "This portal does not have any news, or all news are marked sticky."
+msgstr "ไม่มีข่าวในเว็บศูนย์รวมนี้ หรือข่าวทั้งหมดถูกตั้งให้แสดงค้าง"
+
+#: templates/f/news_category_list.html:28
+msgid "No news."
+msgstr "ไม่มีข่าวล่าสุด"
+
+#: templates/f/news_list.html:24
+msgid "No news in this category."
+msgstr "ไม่มีข่าวในประเภทนี้"
+
+#: templates/f/page_list.html:10
+msgid "This portal does not have any pages."
+msgstr "เว็บศูนย์รวมนี้ยังไม่มีหน้าเพจ"
+
+#: templates/f/podcast_category_list.html:16 templates/f/podcast_list.html:16
+msgid ""
+"This portal does not have any podcast episode, or all podcast episodes are "
+"marked sticky."
+msgstr "ไม่มีพอดคาสต์ในเว็บศูนย์รวมนี้ หรือพอดคาสต์ทั้งหมดถูกตั้งให้แสดงค้าง"
+
+#: templates/f/podcast_category_list.html:28
+msgid "No podcast."
+msgstr "ไม่มีพอดคาสต์ล่าสุด"
+
+#: templates/f/podcast_item.html:62
+msgid "Download"
+msgstr "ดาวน์โหลด"
+
+#: templates/f/podcast_item_info.html:9
+msgid "Type"
+msgstr "ประเภท"
+
+#: templates/f/podcast_list.html:24
+msgid "No podcast in this category."
+msgstr "ไม่มีพอดคาสต์ในประเภทนี้"
+
+#: templates/f/system_portal_list.html:7
+msgid "Portals"
+msgstr "เว็บศูนย์รวม"
+
+#: templates/f/system_stat.html:7
+msgid "System Statistics"
+msgstr ""
+
+#: templates/f/system_stat.html:11
+msgid "Item"
+msgstr "รายการ"
+
+#: templates/f/system_stat.html:12
+msgid "Statistics"
+msgstr "สถิติ"
+
+#: templates/f/system_stat.html:15
+msgid "Number of Users"
+msgstr "จำนวนผู้ใช้"
+
+#: templates/f/system_stat.html:19
+msgid "Number of Portals"
+msgstr "จำนวนเว็บศูนย์รวม"
+
+#: templates/f/system_stat.html:23
+msgid "Number of Pages"
+msgstr "จำนวนหน้าเพจ"
+
+#: templates/f/system_stat.html:27
+msgid "Number of News"
+msgstr "จำนวนข่าว"
+
+#: templates/f/system_stat.html:31
+msgid "Number of Events"
+msgstr "จำนวนกิจกรรม"
+
+#: templates/f/system_stat.html:35
+msgid "Number of Files"
+msgstr "จำนวนไฟล์"
+
+#~ msgid "This portal does not have a book page. Click 'Create' to write one."
+#~ msgstr "เว็บศูนย์รวมนี้ยังไม่มีหน้าเพจ คลิก 'สร้าง' เพื่อเขียนหน้าเพจใหม่"
+
+#~ msgid "This portal does not have a news item. Click 'Create' to write one."
+#~ msgstr "เว็บศูนย์รวมนี้ยังไม่มีข่าว คลิก 'สร้าง' เพื่อเขียนข่าวใหม่"
+
+#~ msgid "This portal does not have an event. Click 'Create' to write one."
+#~ msgstr "เว็บศูนย์รวมนี้ยังไม่มีกิจกรรม คลิก 'สร้าง' เพื่อเขียนกิจกรรมใหม่"
+
+#~ msgid ""
+#~ "This portal does not have a podcast episode. Click 'Create' to post one."
+#~ msgstr "เว็บศูนย์รวมนี้ยังไม่มีพอดคาสต์ คลิก 'สร้าง' เพื่อเพิ่มพอดคาสต์ใหม่"
+
+#~ msgid "Are you sure you want to logout from this system?"
+#~ msgstr "คุณแน่ใจหรือไม่ว่าต้องการออกจากระบบนี้?"
+
+#~ msgid "edit"
+#~ msgstr "แก้ไข"
+
+#~ msgid "Create a New Event Category"
+#~ msgstr "สร้างประเภทกิจกรรมใหม่"

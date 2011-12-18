@@ -1,0 +1,148 @@
+{% extends "b/base2r.html" %}
+{% load i18n %}
+{% load backend_extras %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="/yui/examples/treeview/assets/css/folders/tree.css" />
+
+<div class="controller">
+	<a href="{% url portals.backend.views.file_create portal.address %}" id="create-file-button">{% trans "Upload" %}</a>
+	<a href="" id="refresh-button">{% trans "Refresh" %}</a>
+</div>
+
+<div class="title">{% trans "Files" %}</div>
+
+<div id="file-tree"></div>
+
+<div id="empty-msg" style="display:none;">
+	<p>{% trans "This portal does not have a file. Click 'Upload' to put a file to the server." %}</p>
+</div>
+
+{% endblock %}
+
+{% block sidebar %}
+
+<div id="file-info"></div>
+
+<script type="text/javascript">
+	var edit_url = '{% url backend.views.file_edit portal.address 121212 %}';
+	var delete_url = '{% url backend.views.file_delete portal.address 121212 %}';
+
+	{% if fi %}
+	var fi = {
+		year: '{{ fi.year }}',
+		month: '{{ fi.month }}',
+		day: '{{ fi.day }}',
+		name: '{{ fi.name }}'
+	};
+	{% else %}	
+	var fi = null;
+	{% endif %}
+
+	new YAHOO.widget.Button('create-file-button');
+	new YAHOO.widget.Button('refresh-button');
+
+	YAHOO.util.Event.addListener(window, "load", function() {
+		var tree = new YAHOO.widget.TreeView('file-tree');
+
+		tree.setDynamicLoad(loadNodeData);
+
+		tree.subscribe('expand', function(node) {
+			file_info(node);
+		});
+		tree.subscribe('collapse', function(node) {
+			file_info(node);
+		});
+
+		var root = tree.getRoot();
+
+		{% for year in years %}	
+		var y = Portal.getTreeNodeByLabel(root, '{{ year.name }}')
+		if (!y) y = new YAHOO.widget.TextNode('{{ year.name }}', root);
+
+		if (fi && (y.label == fi.year)) y.expand();
+		{% endfor %}
+
+		if (typeof(y) == 'undefined') $('#empty-msg').css('display', 'block');
+
+		tree.render();
+	});
+
+	function loadNodeData(node, fnLoadComplete) {
+		var callback = {
+			success: function(oResponse) {
+				if (oResponse.getResponseHeader['Content-Type'].indexOf('application/json') >= 0) {
+					var data = YAHOO.lang.JSON.parse(oResponse.responseText);
+					for (i=0; i<data.length; i++) {
+						if (!Portal.getTreeNodeByLabel(node, data[i].name)) {
+							var n = new YAHOO.widget.TextNode(data[i].name, node);
+							if (data[i].type >= 1) {
+								n.isLeaf = true;
+								n.url = data[i].url;
+								n.size = data[i].size;
+								if (typeof(data[i].id) != 'undefined') {
+									n.id = data[i].id;
+									n.keywords = data[i].keywords.toString();
+								}
+							}
+							if (fi) {
+								if ((n.label == fi.month) && (n.depth == 1)) n.expand();
+								if ((n.label == fi.day) && (n.depth == 2)) n.expand();
+								if (n.label == fi.name) n.expand();
+							}
+						}
+					}
+					oResponse.argument.fnLoadComplete();
+				} else {
+					alert(Portal.responseError);
+					document.location.href = '{% url backend.views.file_list portal.address %}';
+				}
+			},
+			failure: function(oResponse) {
+				alert(Portal.connectionFailure);
+				oResponse.argument.fnLoadComplete();
+		 	},
+			argument: {
+				'node': node,
+				'fnLoadComplete': fnLoadComplete
+		  	},
+			timeout: 10000
+		};
+		YAHOO.util.Connect.asyncRequest('GET',
+			'/portals/{{ portal.address }}/files/data/?node=' + Portal.nodePath(node),
+			callback);
+	}
+
+	function file_info(node) {
+		var j = $('#file-info');
+		j.css('display', 'none');
+		j.empty();
+		if (node.isLeaf) {
+			j.append('<div class="title">{% trans "File Information" %}</div>');
+			j.append('<p>');
+			j.append('<b>{% trans "Name" %}:</b> ' + node.url.split('/').reverse()[0] + '<br />');
+			j.append('<b>{% trans "Address" %}:</b> ' + '<input type="text" value="http://{{ sys_info.site_address }}' + node.url + '" onfocus="this.select();" class="file-address" /><br />');
+			if (typeof(node.id) != 'undefined') {
+				j.append('<b>{% trans "Size" %}:</b> ' + node.size.toString() + ' {% trans "bytes" %}<br />');
+				j.append('<b>{% trans "Keywords" %}:</b> ' + node.keywords.toString() + '<br />');
+				j.append('</p>');
+				j.append('<p>');
+				j.append('<a id="preview-button" href="' + node.url + '" target="_blank">{% trans "Preview" %}</a>');
+				j.append('&nbsp;');
+				j.append('<a id="edit-button" href="' + edit_url.replace('121212', node.id) + '">{% trans "Update" %}</a>');
+				j.append('&nbsp;');
+				j.append('<a id="delete-button" href="' + delete_url.replace('121212', node.id) + '">{% trans "Delete" %}</a>');
+				j.append('</p>');
+				new YAHOO.widget.Button('preview-button');
+				new YAHOO.widget.Button('edit-button');
+				new YAHOO.widget.Button('delete-button');
+			} else {
+				j.append('<br />{% trans "This file was uploaded directly to this folder. It cannot be modified using this dashboard." %}');
+			}
+			j.css('display', 'block');
+		}
+	}
+</script>
+
+{% endblock %}

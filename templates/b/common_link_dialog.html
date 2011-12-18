@@ -1,0 +1,12 @@
+{% extends "b/base2r.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="title">{{ title }}</div>
+<p>{{ msg }}</p>
+<p><a href="{{ link_url }}" id="link-button">{{ link_text }}</a></p>
+
+<script type="text/javascript">
+	var linkButton = new YAHOO.widget.Button('link-button');
+</script>
+{% endblock %}

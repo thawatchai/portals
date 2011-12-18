@@ -1,0 +1,54 @@
+{% extends "b/base2r.html" %}
+{% load i18n %}
+{% load backend_extras %}
+
+{% block content %}
+
+{% ifequal request.user portal.owner %}
+<div class="controller">
+	<a href="{% url backend.views.contributor_create portal.address %}" id="create-button">{% trans "Add" %}</a>
+</div>
+{% endifequal %}
+
+<div class="title">{% trans "Contributors" %}</div>
+{% if contributors %}
+<div id="contributors">
+	<table id="contributors-table">
+		{% for contributor in contributors %}
+		<tr>
+			<td><a href="{% url backend.views.user_portal_list contributor.username %}">{{ contributor.username }}</a></td>
+			<td>{{ contributor|user_display_name }}</td>
+			{% ifequal request.user portal.owner %}
+			<td><a href="{% url backend.views.contributor_delete portal.address contributor.username %}">{% trans "remove" %}</a></td>
+			{% endifequal %}
+		</tr>
+		{% endfor %}
+	</table>
+</div>
+{% else %}
+<p>{% trans "This portal does not have a contributor. Click 'Add' to add a contributor." %}</p>
+{% endif %}
+
+<script type="text/javascript">
+	var createButton = new YAHOO.widget.Button('create-button');
+
+	var ContributorsSource = new YAHOO.util.DataSource(YAHOO.util.Dom.get("contributors-table"));
+	ContributorsSource.responseType = YAHOO.util.DataSource.TYPE_HTMLTABLE;
+	ContributorsSource.responseSchema = {
+		fields: [
+					{key:"{% trans "Username" %}"},
+					{key:"{% trans "Name" %}"}
+					{% ifequal request.user portal.owner %}
+					, {key:"{% trans "Actions" %}"}
+					{% endifequal %}
+				]
+	};
+	var ContributorsTable = new YAHOO.widget.DataTable("contributors", [
+			{key:"{% trans "Username" %}"},
+			{key:"{% trans "Name" %}"}
+			{% ifequal request.user portal.owner %}
+			, {key:"{% trans "Actions" %}"}
+			{% endifequal %}
+			], ContributorsSource);
+</script>
+{% endblock %}

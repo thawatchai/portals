@@ -1,0 +1,199 @@
+@import url("/stylesheets/general.css");
+
+html {
+	background: #eef;
+}
+
+a:link, a:visited {
+	color: #0000cd;
+}
+
+input {
+	width: 400px;
+}
+
+input[type=checkbox] {
+	width: auto;
+}
+
+input.file-address {
+	width: 150px;
+}
+
+#login-form input {
+	width: 150px;
+}
+
+#login-form th {
+	text-align: right;
+}
+
+#login-form #id_captcha_1 {
+	width: 50px;
+}
+
+textarea {
+	width: 850px;
+	height: 500px;
+}
+
+td, th {
+	padding: 2px;
+	vertical-align: top;
+}
+
+div.controller {
+	float: right;
+}
+
+div.bottom-controller {
+	padding-top: 8px;
+}
+
+#cover-frame {
+	background: #fff;
+	margin: 4px 10px;
+	padding: 8px 8px 20px;
+	border: 1px solid #dde;
+}
+
+#main-frame {
+	text-align: left;
+}
+
+#head-frame {
+	padding-bottom: 4px;
+	margin-bottom: 4px;
+}
+
+#head-frame div.title {
+	text-align: left;
+	font-size: 2em;
+}
+
+#head-frame div.title a:link, #head-frame div.title a:visited {
+	text-decoration: none;
+}
+
+#head-frame div.user-info {
+	text-align: right;
+}
+
+#messages {
+	text-align: center;
+	font-weight: bold;
+	padding: 4px 0px;
+	background: #efefef;
+}
+
+#body-frame {
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
+
+#body-frame #content {
+	margin-bottom: 18px;
+}
+
+#body-frame div.breadcrumbs {
+	margin: 3px 0px 0px;
+}
+
+#body-frame div.breadcrumbs a:link, #body-frame div.breadcrumbs a:visited {
+}
+
+#body-frame div.breadcrumbs a:hover {
+	background: #cbe2ff;
+}
+
+#body-frame span.breadcrumbs {
+	padding: 1px 9px 1px 3px;
+	margin: 3px 0px;
+}
+
+#body-frame #breadcrumbs-top {
+	padding: 6px 0px 10px;
+}
+
+#body-frame #breadcrumbs-bottom {
+	padding: 30px 0px 6px;
+}
+
+#body-frame a.breadcrumb {
+	border: 1px solid #CCE7F1;
+	background: #edf5ff;
+	padding: 1px 6px 3px;
+}
+
+#body-frame div.title {
+	font-size: 1.3em;
+	border-bottom: solid 1px #888;
+	padding: 10px 0px 2px;
+	margin-bottom: 8px;
+}
+
+#footer-frame {
+	margin-top: 4px;
+	padding-top: 4px;
+	border-top: solid 1px #888;
+}
+
+#footer-frame div#sponsor-credit {
+	text-align: right;
+}
+
+ul.errorlist {
+	font-weight: bold;
+	color: #900;
+}
+
+#list-pagination {
+	padding: 8px 0px;
+}
+
+#list-pagination span.number {
+	font-weight: bold;
+	border: 1px solid #666;
+	padding: 1px 6px;
+}
+
+#sys_announcement {
+	text-align: center;
+	padding: 4px;
+}
+
+#sys_ft {
+	text-align: center;
+	padding: 4px;
+}
+
+#sys_backend_ft {
+	text-align: right;
+}
+
+div#page-detail-address {
+	padding: 4px 4px 12px;
+	border-bottom: solid 1px #888;
+}
+
+div#page-detail-content {
+	padding-top: 4px;
+}
+
+div#page-detail-info {
+	padding: 8px 4px;
+	text-align: right;
+}
+
+ul.errorlist li {
+	margin-left: 0px;
+	list-style-type: none;
+}
+
+span.js-mark {
+	color: #330;
+	background: #ff6;
+	border: 1px solid #993;
+	padding: 2px 4px;
+}
+

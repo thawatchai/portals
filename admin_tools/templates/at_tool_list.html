@@ -1,0 +1,21 @@
+{% extends "admin/change_list.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Admin Tools" %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+	<h1>{% trans "Admin Tools" %}</h1>
+
+	<div class="module">
+		<h2>{% trans "Monitoring Tools" %}</h2>
+		<ul>
+		</ul>
+
+		<h2>{% trans "Email Tools" %}</h2>
+		<ul>
+			<li><a href="./email/all">{% trans "Email All Users" %}</a></li>
+		</ul>
+	</div>
+</div>
+{% endblock %}

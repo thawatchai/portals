@@ -1,0 +1,6 @@
+{% load frontend_extras %}
+<div class="list-item">
+	<div class="item-title"><a href="{% domain_url portal frontend.views.event_item portal.address obj.id %}">{{ obj.title }}</a></div>
+	{{ obj.content|striptags|truncatechars:350 }}
+	{% include "f/event_item_info.html" %}
+</div>
