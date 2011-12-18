@@ -1,6 +1,5 @@
 
-Dependencies
-------------
+# Dependencies
 
 * Python
 * Django
@@ -8,4 +7,8 @@ Dependencies
 * PIL
 * flup
 * pyFTPdlib
-* This line for test check-in Nott write for kae delete
+
+# Copyright and License
+Copyright 2008-2012 Thawatchai Piyawat
+
+Released under GNU General Public License
